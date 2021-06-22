@@ -98,6 +98,10 @@
 
         function yesButton()
         {
+            if(document.getElementById("englishWordDiv").innerHTML == "")
+            {
+                return;
+            }
             if(wordNumber + 1 > PolishWords.length - 1)
             {
                 wordNumber = 0;
