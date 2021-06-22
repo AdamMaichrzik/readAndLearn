@@ -23,28 +23,35 @@
 </head>
 <body>
     <div class="container">
+        <!-- Menu -->
         <div class="row">
             <div class="col-12"> 
                <a href="index.html"> Back to menu</a>
             </div>
         </div>
-        <div class="row mb-4">
-            <button type="button" onclick="polishClick()">
+        <!-- Polish words-->
+        <div class="row">
+            <button type="button" onClick="polishClick()">
                 <div class="col-12" style="text-align: center; height: 100px; color: red;" id="polishWordDiv"></div>
                 <div class="col-12" style="text-align: center; height: 100px; color: red;" id="polishSentenceDiv"></div>
             </button>
         </div>
-        <div class="row" style="border-top: 3px solid #E8E8E8;"></div>
-        <div class="row" style="margin-top: 13%">
-            <div class="col-12" style="text-align: center; height: 50px;" id="englishWordDiv"></div>
-            <div class="col-12" style="text-align: center; height: 50px;" id="englishSentenceDiv"></div>
+        <!-- Border line -->
+        <div class="row" style="border-top: 3px solid #E8E8E8; margin-top: 3%; margin-bottom: 3%;"></div>
+        <!-- English words-->
+        <div class="row">
+            <button type="button" onClick="englishClick()">
+                <div class="col-12" style="text-align: center; height: 100px; color: red;" id="englishWordDiv"></div>
+                <div class="col-12" style="text-align: center; height: 100px; color: red;" id="englishSentenceDiv"></div>    
+            </button>
         </div>
+        <!-- Buttons -->
         <div class="row" style="margin-top: 21%;">
             <div class="col-4">
                 <button type="button" onclick="yesButton()" class="btn btn-light">Yes</button>
             </div>
             <div class="col-4">
-                <button type="button" class="btn btn-light">Middle</button>
+                <button type="button" onclick="middleButton()" class="btn btn-light">Middle</button>
             </div>
             <div class="col-4">
                 <button type="button" class="btn btn-light">No</button>
@@ -52,37 +59,63 @@
         </div>
     </div>
     
-<!-- Reading file from php and putting into divs -->
+    <!-- Reading file from php and putting into divs -->
     <script>
         var WordID = <?php echo json_encode($WordID); ?>;
         var PolishWords = <?php echo json_encode($PolishWords); ?>;
         var PolishSentence = <?php echo json_encode($PolishSentence); ?>;
         var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
         var EnglishSentence = <?php echo json_encode($EnglishSentence); ?>;
-        var click = 0;
-        var polishWordNumber = 0;
+        var topClick = 0;
+        var bottomClick = 0;
+        var wordNumber = 0;
 
         function polishClick()
         {
-            if (click == 0)
+            if (topClick == 0)
             {
-                document.getElementById("polishWordDiv").innerHTML = PolishWords[polishWordNumber];
-                click += 1;
+                document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+                topClick += 1;
             }
-            else if (click == 1)
+            else if(topClick == 1)
             {
-                document.getElementById("polishSentenceDiv").innerHTML = PolishSentence[polishWordNumber];
-                click == 0;
+                document.getElementById("polishSentenceDiv").innerHTML = PolishSentence[wordNumber];
+            }
+        }
+
+        function englishClick()
+        {
+            if (bottomClick == 0 )
+            {
+                document.getElementById("englishWordDiv").innerHTML = EnglishWords[wordNumber];
+                bottomClick += 1;
+                console.log(bottomClick);
+            }
+            else if(bottomClick == 1)
+            {
+                document.getElementById("englishSentenceDiv").innerHTML = EnglishSentence[wordNumber];
+                bottomClick = 0;
+                console.log(bottomClick);
             }
         }
 
         function yesButton()
         {
-            
+            topClick == 0;
+            wordNumber++;
+            document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+            document.getElementById("polishSentenceDiv").innerHTML = "";
+            document.getElementById("englishWordDiv").innerHTML = "";
+            document.getElementById("englishSentenceDiv").innerHTML = "";
+        }
+
+        function middleButton()
+        {
+
+            document.getElementById("englishWordDiv").innerHTML = EnglishWords[wordNumber];
         }
 
     </script>
-
 
     <!-- Bootstrap script -->  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
