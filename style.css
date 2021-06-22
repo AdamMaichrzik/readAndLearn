@@ -28,3 +28,17 @@ a:hover
     text-decoration: none;
     color: #A8A8A8;
 }
+
+button {
+    border: none;
+    font-size: 3vw;
+}
+
+button:focus {
+    border: none;
+    outline: none;
+}
+
+button:focus{
+    outline:none !important;
+}
