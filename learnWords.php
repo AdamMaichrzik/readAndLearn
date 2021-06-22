@@ -46,7 +46,7 @@
             </button>
         </div>
         <!-- Buttons -->
-        <div class="row" style="margin-top: 21%;">
+        <div class="row" style="margin-top: 13%;">
             <div class="col-4">
                 <button type="button" onclick="yesButton()" class="btn btn-light">Yes</button>
             </div>
@@ -128,13 +128,6 @@
             }
 
         }
-
-        function middleButton()
-        {
-
-            document.getElementById("englishWordDiv").innerHTML = EnglishWords[wordNumber];
-        }
-
     </script>
 
     <!-- Bootstrap script -->  
