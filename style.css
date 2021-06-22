@@ -4,3 +4,27 @@ body
     color: #E8E8E8;
     font-size: 3rem;
 }
+
+a
+{
+    text-decoration: none;
+    color: #E8E8E8;
+}
+
+a:link
+{
+    text-decoration: none;
+    color: #E8E8E8;
+}
+
+a:visited
+{
+    text-decoration: none;
+    color: #E8E8E8;
+}
+
+a:hover
+{
+    text-decoration: none;
+    color: #A8A8A8;
+}
