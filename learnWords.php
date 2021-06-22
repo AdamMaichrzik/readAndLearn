@@ -27,7 +27,7 @@
     <div id="test"> test</div>
     <script>
         var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
-        document.getElementById("test").innerHTML = EnglishWords[1];
+        document.getElementById("test").innerHTML = EnglishWords[1]
     </script>
 </body>
 </html>
