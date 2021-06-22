@@ -89,24 +89,34 @@
             {
                 document.getElementById("englishWordDiv").innerHTML = EnglishWords[wordNumber];
                 bottomClick += 1;
-                console.log(bottomClick);
             }
             else if(bottomClick == 1)
             {
                 document.getElementById("englishSentenceDiv").innerHTML = EnglishSentence[wordNumber];
-                bottomClick = 0;
-                console.log(bottomClick);
             }
         }
 
         function yesButton()
         {
-            topClick == 0;
-            wordNumber++;
-            document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
-            document.getElementById("polishSentenceDiv").innerHTML = "";
-            document.getElementById("englishWordDiv").innerHTML = "";
-            document.getElementById("englishSentenceDiv").innerHTML = "";
+            if(wordNumber + 1 > PolishWords.length - 1)
+            {
+                wordNumber = 0;
+                bottomClick = 0;
+                document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+                document.getElementById("polishSentenceDiv").innerHTML = "";
+                document.getElementById("englishWordDiv").innerHTML = "";
+                document.getElementById("englishSentenceDiv").innerHTML = "";
+            }
+            else
+            {
+                bottomClick = 0;
+                wordNumber++;
+                document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+                document.getElementById("polishSentenceDiv").innerHTML = "";
+                document.getElementById("englishWordDiv").innerHTML = "";
+                document.getElementById("englishSentenceDiv").innerHTML = "";
+            }
+
         }
 
         function middleButton()
