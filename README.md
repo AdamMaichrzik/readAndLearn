@@ -1,6 +1,6 @@
 Read and learn!
 =======
-You can check it out [here](www.adammaichrzikplayground.pl/readAndLearn2/index.html).
+You can check it out on http://www.adammaichrzikplayground.pl/readAndLearn2/index.html.
 
 
 On this project I was working a lot. I was trying to do this in Swift language and it was pretty nice but doesn't worked like i wanted it to work and i couldn't figure out how to 
