@@ -70,6 +70,7 @@
         var bottomClick = 0;
         var wordNumber = 0;
 
+        /* First click display polish word second display polish sentence */
         function polishClick()
         {
             if (topClick == 0)
@@ -82,7 +83,7 @@
                 document.getElementById("polishSentenceDiv").innerHTML = PolishSentence[wordNumber];
             }
         }
-
+        /* First english click display english word second display english sentence  */
         function englishClick()
         {
             if (bottomClick == 0 )
@@ -98,10 +99,14 @@
 
         function yesButton()
         {
+            console.log(wordNumber);
+            console.log(WordID[5]);
+            /* If english word is empty can't go next words */
             if(document.getElementById("englishWordDiv").innerHTML == "")
             {
                 return;
             }
+            /* Going to the first word from last  */
             if(wordNumber + 1 > PolishWords.length - 1)
             {
                 wordNumber = 0;
@@ -111,6 +116,7 @@
                 document.getElementById("englishWordDiv").innerHTML = "";
                 document.getElementById("englishSentenceDiv").innerHTML = "";
             }
+            /* Clear words and display another polish word */
             else
             {
                 bottomClick = 0;
