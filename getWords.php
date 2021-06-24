@@ -13,5 +13,6 @@
             $EnglishSentence[] = $row["EnglishSentence"];
             $PolishWords[] = $row["PolishWords"];
             $PolishSentence[] = $row["PolishSentence"];
+            $activeWord[] = $row["activeWord"];
         }
 ?>

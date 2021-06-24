@@ -63,19 +63,18 @@
     
     <!-- Reading file from php and putting into divs -->
     <script>
-        var WordID = <?php echo json_encode($WordID); ?>;
+        var activeWord = <?php echo json_encode($activeWord); ?>;
         var PolishWords = <?php echo json_encode($PolishWords); ?>;
         var PolishSentence = <?php echo json_encode($PolishSentence); ?>;
         var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
         var EnglishSentence = <?php echo json_encode($EnglishSentence); ?>;
         var topClick = 0;
         var bottomClick = 0;
-        var wordNumber = 0;
-        var startWord;
+        var wordNumber = activeWord [0];
 
         function startWord()
         {
-            document.getElementById("polishWordDiv").innerHTML = PolishWords[startWord];
+            document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
         }
 
         /* First click display polish word second display polish sentence */
@@ -122,9 +121,9 @@
                 document.getElementById("englishWordDiv").innerHTML = "";
                 document.getElementById("englishSentenceDiv").innerHTML = "";
             }
-            /* Clear words and display another polish word */
             else
             {
+                /* Clear words and display another polish word */
                 bottomClick = 0;
                 wordNumber++;
                 document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
@@ -132,8 +131,11 @@
                 document.getElementById("englishWordDiv").innerHTML = "";
                 document.getElementById("englishSentenceDiv").innerHTML = "";
             }
-        }
 
+        document.cookie="wordCookie = " + wordNumber;
+        }
+        
+        
     </script>
 
     <!-- Bootstrap script -->  
@@ -141,8 +143,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <?php
-                
+    <<?php        
     if(isset($_POST['rememberWord']))
     {
         require_once "dbconnect.php";
@@ -153,11 +154,9 @@
         $sql = mysqli_query($connection, "SELECT * FROM words");
 
         $sql = $connection -> 
-        query ("UPDATE words SET activeWord = '5' WHERE ID = '0'");  
-        
+        query ("UPDATE words SET activeWord = ".$_COOKIE['wordCookie']." WHERE ID = 0 ");  
         echo '<script>window.location = "index.html";</script>';
-    }  
-      
+    }               
 ?>
 
 </body>
