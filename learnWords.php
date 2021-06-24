@@ -21,12 +21,14 @@
 
     <?php include 'getWords.php';?>
 </head>
-<body>
+<body onload="startWord()">
     <div class="container">
         <!-- Menu -->
         <div class="row">
-            <div class="col-12"> 
-               <a href="index.html"> Back to menu</a>
+            <div class="col-12" > 
+                <form method="post">
+                    <button name="rememberWord" style="background-color: red;"> Back to menu</button>
+                </form>
             </div>
         </div>
         <!-- Polish words-->
@@ -69,6 +71,12 @@
         var topClick = 0;
         var bottomClick = 0;
         var wordNumber = 0;
+        var startWord;
+
+        function startWord()
+        {
+            document.getElementById("polishWordDiv").innerHTML = PolishWords[startWord];
+        }
 
         /* First click display polish word second display polish sentence */
         function polishClick()
@@ -99,8 +107,6 @@
 
         function yesButton()
         {
-            console.log(wordNumber);
-            console.log(WordID[5]);
             /* If english word is empty can't go next words */
             if(document.getElementById("englishWordDiv").innerHTML == "")
             {
@@ -126,13 +132,33 @@
                 document.getElementById("englishWordDiv").innerHTML = "";
                 document.getElementById("englishSentenceDiv").innerHTML = "";
             }
-
         }
+
     </script>
 
     <!-- Bootstrap script -->  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <?php
+                
+    if(isset($_POST['rememberWord']))
+    {
+        require_once "dbconnect.php";
+        //connect to mysqli database (Host/Username/Password)
+        $connection = mysqli_connect($host, $user, $password) or die("Error " . mysqli_error());
+        //select MySQLi dabatase table
+        $db = mysqli_select_db($connection, "serwer69488_Playground") or die("Error " . mysqli_error());  
+        $sql = mysqli_query($connection, "SELECT * FROM words");
+
+        $sql = $connection -> 
+        query ("UPDATE words SET activeWord = '5' WHERE ID = '0'");  
+        
+        echo '<script>window.location = "index.html";</script>';
+    }  
+      
+?>
+
 </body>
 </html>
