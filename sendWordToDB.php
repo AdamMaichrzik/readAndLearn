@@ -4,7 +4,7 @@
     $connection = mysqli_connect($host, $user, $password) or die("Error " . mysqli_error());
     //select MySQLi dabatase table
     $db = mysqli_select_db($connection, "serwer69488_Playground") or die("Error " . mysqli_error());  
-    $sql = mysqli_query($connection, "SELECT * FROM words");
+    $sql = mysqli_query($connection, "SELECT * FROM englishWordsTable");
 
     //Loop for getting the array from sql ID table
     while($row = mysqli_fetch_array($sql))
@@ -27,7 +27,7 @@
         }
         else
         {
-            $sql = $connection -> query ("INSERT INTO words (ID, EnglishWords, PolishWords, EnglishSentence, PolishSentence)
+            $sql = $connection -> query ("INSERT INTO englishWordsTable (ID, EnglishWords, PolishWords, EnglishSentence, PolishSentence)
             VALUES ('".$IDCount."', '".$EnglishWord."', '".$PolishWord."', '".$EnglishSentence."', '".$PolishSentence."')");
         }
     }

@@ -63,14 +63,14 @@
     
     <!-- Reading file from php and putting into divs -->
     <script>
-        var activeWord = <?php echo json_encode($activeWord); ?>;
+        var activeEnglishWord = <?php echo json_encode($activeEnglishWord); ?>;
         var PolishWords = <?php echo json_encode($PolishWords); ?>;
         var PolishSentence = <?php echo json_encode($PolishSentence); ?>;
         var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
         var EnglishSentence = <?php echo json_encode($EnglishSentence); ?>;
         var topClick = 0;
         var bottomClick = 0;
-        var wordNumber = activeWord [0];
+        var wordNumber = activeEnglishWord [0];
 
         function startWord()
         {
@@ -150,10 +150,10 @@
         $connection = mysqli_connect($host, $user, $password) or die("Error " . mysqli_error());
         //select MySQLi dabatase table
         $db = mysqli_select_db($connection, "serwer69488_Playground") or die("Error " . mysqli_error());  
-        $sql = mysqli_query($connection, "SELECT * FROM words");
+        $sql = mysqli_query($connection, "SELECT * FROM activeWords");
 
         $sql = $connection -> 
-        query ("UPDATE words SET activeWord = ".$_COOKIE['wordCookie']." WHERE ID = 0 ");  
+        query ("UPDATE activeWords SET activeEnglishWord = ".$_COOKIE['wordCookie']."");  
         echo '<script>window.location = "index.html";</script>';
     }               
 ?>
