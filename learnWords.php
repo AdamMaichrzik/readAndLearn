@@ -111,16 +111,6 @@
             {
                 return;
             }
-            /* Going to the first word from last  */
-            if(wordNumber + 1 > PolishWords.length - 1)
-            {
-                wordNumber = 0;
-                bottomClick = 0;
-                document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
-                document.getElementById("polishSentenceDiv").innerHTML = "";
-                document.getElementById("englishWordDiv").innerHTML = "";
-                document.getElementById("englishSentenceDiv").innerHTML = "";
-            }
             else
             {
                 /* Clear words and display another polish word */
@@ -131,7 +121,16 @@
                 document.getElementById("englishWordDiv").innerHTML = "";
                 document.getElementById("englishSentenceDiv").innerHTML = "";
             }
-
+             /* Going to the first word from last  */
+             if(wordNumber + 1 > PolishWords.length)
+            {
+                document.getElementById("polishWordDiv").innerHTML = PolishWords[0];
+                document.getElementById("polishSentenceDiv").innerHTML = "";
+                document.getElementById("englishWordDiv").innerHTML = "";
+                document.getElementById("englishSentenceDiv").innerHTML = "";
+                wordNumber = 0;
+                bottomClick = 0;
+            }
         document.cookie="wordCookie = " + wordNumber;
         }
         
