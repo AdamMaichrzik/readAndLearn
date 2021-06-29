@@ -70,7 +70,7 @@
 
         function startWord()
         {
-            document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+            document.getElementById("polishWordDiv").innerHTML = polishWord[wordNumber];
         }
 
         /* First click display polish word  */
@@ -78,12 +78,12 @@
         {
             if (topClick == 0)
             {
-                document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+                document.getElementById("polishWordDiv").innerHTML = polishWord[wordNumber];
                 topClick += 1;
             }
 
         }
-        /* First english click display english word second display english sentence  */
+        /* First german click display german*/
         function englishClick()
         {
             if (bottomClick == 0 )
@@ -96,7 +96,7 @@
 
         function yesButton()
         {
-            /* If english word is empty can't go next words */
+            /* If german word is empty can't go next words */
             if(document.getElementById("germanWordDiv").innerHTML == "")
             {
                 return;
@@ -106,13 +106,13 @@
                 /* Clear words and display another polish word */
                 bottomClick = 0;
                 wordNumber++;
-                document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+                document.getElementById("polishWordDiv").innerHTML = polishWord[wordNumber];
                 document.getElementById("germanWordDiv").innerHTML = "";
             }
              /* Going to the first word from last  */
-             if(wordNumber + 1 > PolishWords.length)
+             if(wordNumber + 1 > polishWord.length)
             {
-                document.getElementById("polishWordDiv").innerHTML = PolishWords[0];
+                document.getElementById("polishWordDiv").innerHTML = polishWord[0];
                 document.getElementById("germanWordDiv").innerHTML = "";
                 wordNumber = 0;
                 bottomClick = 0;
@@ -138,7 +138,7 @@
         $sql = mysqli_query($connection, "SELECT * FROM activeWords");
 
         $sql = $connection -> 
-        query ("UPDATE activeWords SET activeEnglishWord = ".$_COOKIE['wordCookie']."");  
+        query ("UPDATE activeWords SET activeGermanWord = ".$_COOKIE['wordCookie']."");  
         echo '<script>window.location = "index.html";</script>';
     }               
 ?>
