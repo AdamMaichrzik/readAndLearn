@@ -19,7 +19,7 @@
     <!-- CSS -->
     <link href="style.css" rel="stylesheet">
 
-    <?php include 'getWords.php';?>
+    <?php include 'getGermanWords.php';?>
 </head>
 <body onload="startWord()">
     <div class="container">
@@ -35,7 +35,6 @@
         <div class="row">
             <button type="button" onClick="polishClick()">
                 <div class="col-12" style="text-align: center; height: 100px; color: red;" id="polishWordDiv"></div>
-                <div class="col-12" style="text-align: center; height: 100px; color: red;" id="polishSentenceDiv"></div>
             </button>
         </div>
         <!-- Border line -->
@@ -43,8 +42,7 @@
         <!-- English words-->
         <div class="row">
             <button type="button" onClick="englishClick()">
-                <div class="col-12" style="text-align: center; height: 100px; color: red;" id="englishWordDiv"></div>
-                <div class="col-12" style="text-align: center; height: 100px; color: red;" id="englishSentenceDiv"></div>    
+                <div class="col-12" style="text-align: center; height: 100px; color: red;" id="germanWordDiv"></div>
             </button>
         </div>
         <!-- Buttons -->
@@ -63,21 +61,19 @@
     
     <!-- Reading file from php and putting into divs -->
     <script>
-        var activeEnglishWord = <?php echo json_encode($activeEnglishWord); ?>;
-        var PolishWords = <?php echo json_encode($PolishWords); ?>;
-        var PolishSentence = <?php echo json_encode($PolishSentence); ?>;
-        var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
-        var EnglishSentence = <?php echo json_encode($EnglishSentence); ?>;
+        var activeGermanWord = <?php echo json_encode($activeGermanWord); ?>;
+        var germanWord = <?php echo json_encode($germanWord); ?>;
+        var polishWord = <?php echo json_encode($polishWord); ?>;
         var topClick = 0;
         var bottomClick = 0;
-        var wordNumber = activeEnglishWord [0];
+        var wordNumber = activeGermanWord [0];
 
         function startWord()
         {
             document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
         }
 
-        /* First click display polish word second display polish sentence */
+        /* First click display polish word  */
         function polishClick()
         {
             if (topClick == 0)
@@ -85,29 +81,23 @@
                 document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
                 topClick += 1;
             }
-            else if(topClick == 1)
-            {
-                document.getElementById("polishSentenceDiv").innerHTML = PolishSentence[wordNumber];
-            }
+
         }
         /* First english click display english word second display english sentence  */
         function englishClick()
         {
             if (bottomClick == 0 )
             {
-                document.getElementById("englishWordDiv").innerHTML = EnglishWords[wordNumber];
+                document.getElementById("germanWordDiv").innerHTML = germanWord[wordNumber];
                 bottomClick += 1;
             }
-            else if(bottomClick == 1)
-            {
-                document.getElementById("englishSentenceDiv").innerHTML = EnglishSentence[wordNumber];
-            }
+
         }
 
         function yesButton()
         {
             /* If english word is empty can't go next words */
-            if(document.getElementById("englishWordDiv").innerHTML == "")
+            if(document.getElementById("germanWordDiv").innerHTML == "")
             {
                 return;
             }
@@ -117,17 +107,13 @@
                 bottomClick = 0;
                 wordNumber++;
                 document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
-                document.getElementById("polishSentenceDiv").innerHTML = "";
-                document.getElementById("englishWordDiv").innerHTML = "";
-                document.getElementById("englishSentenceDiv").innerHTML = "";
+                document.getElementById("germanWordDiv").innerHTML = "";
             }
              /* Going to the first word from last  */
              if(wordNumber + 1 > PolishWords.length)
             {
                 document.getElementById("polishWordDiv").innerHTML = PolishWords[0];
-                document.getElementById("polishSentenceDiv").innerHTML = "";
-                document.getElementById("englishWordDiv").innerHTML = "";
-                document.getElementById("englishSentenceDiv").innerHTML = "";
+                document.getElementById("germanWordDiv").innerHTML = "";
                 wordNumber = 0;
                 bottomClick = 0;
             }

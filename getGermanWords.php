@@ -3,16 +3,14 @@
         require_once "dbconnect.php";
         $connection = mysqli_connect($host, $user, $password) or die ("Error " . mysqli_error());
         $db = mysqli_select_db($connection, "serwer69488_Playground") or die ("Error " . mysqli_error());
-        $sql = mysqli_query($connection, "SELECT * FROM englishWordsTable");
+        $sql = mysqli_query($connection, "SELECT * FROM germanWordsTable");
 
         /* Loop for taking the data from sql and putting it into php arrays */
         while($row = mysqli_fetch_array($sql))
         {
-            $WordID[] = $row["ID"];
-            $EnglishWords[] = $row["EnglishWords"];
-            $EnglishSentence[] = $row["EnglishSentence"];
-            $PolishWords[] = $row["PolishWords"];
-            $PolishSentence[] = $row["PolishSentence"];
+            $ID[] = $row["ID"];
+            $germanWord[] = $row["germanWord"];
+            $polishWord[] = $row["polishWord"];
         }
 
         /* Connection with sql */
@@ -24,6 +22,6 @@
         /* Loop for taking the data from sql and putting it into php arrays */
         while($row = mysqli_fetch_array($sql))
         {
-            $activeEnglishWord[] = $row["activeEnglishWord"];
+            $activeGermanWord[] = $row["activeGermanWord"];
         }
 ?>
