@@ -88,6 +88,8 @@
             else if(topClick == 1)
             {
                 document.getElementById("polishSentenceDiv").innerHTML = PolishSentence[wordNumber];
+                var audio = new Audio('sounds/Sentences/Polish/Sentence' + [wordNumber] + '.mp3');
+                audio.play();
             }
         }
         /* First english click display english word second display english sentence  */
@@ -97,10 +99,14 @@
             {
                 document.getElementById("englishWordDiv").innerHTML = EnglishWords[wordNumber];
                 bottomClick += 1;
+                var audio = new Audio('sounds/Words/English/Word' + [wordNumber] + '.mp3');
+                audio.play();
             }
             else if(bottomClick == 1)
             {
                 document.getElementById("englishSentenceDiv").innerHTML = EnglishSentence[wordNumber];
+                var audio = new Audio('sounds/Sentences/English/Sentence' + [wordNumber] + '.mp3');
+                audio.play();
             }
         }
 
@@ -120,6 +126,8 @@
                 document.getElementById("polishSentenceDiv").innerHTML = "";
                 document.getElementById("englishWordDiv").innerHTML = "";
                 document.getElementById("englishSentenceDiv").innerHTML = "";
+                var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                audio.play();
             }
              /* Going to the first word from last  */
              if(wordNumber + 1 > PolishWords.length)
@@ -130,9 +138,17 @@
                 document.getElementById("englishSentenceDiv").innerHTML = "";
                 wordNumber = 0;
                 bottomClick = 0;
+                var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                audio.play();
             }
         document.cookie="wordCookie = " + wordNumber;
         }
+
+    function middleButton()
+    {
+        var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+        audio.play();
+    }
         
     </script>
 
