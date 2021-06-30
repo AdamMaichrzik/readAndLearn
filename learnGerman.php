@@ -19,7 +19,9 @@
     <!-- CSS -->
     <link href="style.css" rel="stylesheet">
 
+    <!-- Including php files  -->
     <?php include 'getGermanWords.php';?>
+    <?php include 'sendGermanActiveWord.php';?>
 </head>
 <body onload="startWord()">
     <div class="container">
@@ -59,21 +61,23 @@
         </div>
     </div>
     
-    <!-- Reading file from php and putting into divs -->
     <script>
+        /* Reading file from php and putting into divs */
         var activeGermanWord = <?php echo json_encode($activeGermanWord); ?>;
         var germanWord = <?php echo json_encode($germanWord); ?>;
         var polishWord = <?php echo json_encode($polishWord); ?>;
+        // Variables 
         var topClick = 0;
         var bottomClick = 0;
         var wordNumber = activeGermanWord [0];
 
+        //Displaying first polish word on start 
         function startWord()
         {
             document.getElementById("polishWordDiv").innerHTML = polishWord[wordNumber];
         }
 
-        /* First click display polish word  */
+        /* First click display polish word */
         function polishClick()
         {
             if (topClick == 0)
@@ -83,7 +87,7 @@
             }
 
         }
-        /* First german click display german*/
+        /* First german click display german word*/
         function englishClick()
         {
             if (bottomClick == 0 )
@@ -91,9 +95,9 @@
                 document.getElementById("germanWordDiv").innerHTML = germanWord[wordNumber];
                 bottomClick += 1;
             }
-
         }
 
+        // Function for yesButton 
         function yesButton()
         {
             /* If german word is empty can't go next words */
@@ -117,6 +121,7 @@
                 wordNumber = 0;
                 bottomClick = 0;
             }
+        // Cookie saving last showed word for displaying it next time 
         document.cookie="wordCookie = " + wordNumber;
         }
         
@@ -126,22 +131,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <?php        
-    if(isset($_POST['rememberWord']))
-    {
-        require_once "dbconnect.php";
-        //connect to mysqli database (Host/Username/Password)
-        $connection = mysqli_connect($host, $user, $password) or die("Error " . mysqli_error());
-        //select MySQLi dabatase table
-        $db = mysqli_select_db($connection, "serwer69488_Playground") or die("Error " . mysqli_error());  
-        $sql = mysqli_query($connection, "SELECT * FROM activeWords");
-
-        $sql = $connection -> 
-        query ("UPDATE activeWords SET activeGermanWord = ".$_COOKIE['wordCookie']."");  
-        echo '<script>window.location = "index.html";</script>';
-    }               
-?>
 
 </body>
 </html>

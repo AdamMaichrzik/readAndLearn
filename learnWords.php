@@ -19,8 +19,11 @@
     <!-- CSS -->
     <link href="style.css" rel="stylesheet">
 
+    <!-- PHP file for getting the words from SQL DB-->
     <?php include 'getWords.php';?>
+    <?php include 'sendEnglishActiveWord.php';?>
 </head>
+<!-- Onload function for displaying first word -->
 <body onload="startWord()">
     <div class="container">
         <!-- Menu -->
@@ -56,23 +59,26 @@
                 <button type="button" onclick="middleButton()" class="btn btn-light">Middle</button>
             </div>
             <div class="col-4 text-center">
-                <button  type="button" class="btn btn-light">No</button>
+                <button type="button" class="btn btn-light">No</button>
             </div>
         </div>
     </div>
     
-    <!-- Reading file from php and putting into divs -->
     <script>
+        /* Reading file from php and putting into divs */
+
         var activeEnglishWord = <?php echo json_encode($activeEnglishWord); ?>;
         var PolishWords = <?php echo json_encode($PolishWords); ?>;
         var PolishSentence = <?php echo json_encode($PolishSentence); ?>;
         var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
         var EnglishSentence = <?php echo json_encode($EnglishSentence); ?>;
+        /* Variables */
         var topClick = 0;
         var bottomClick = 0;
         var wordNumber = activeEnglishWord [0];
         var firstWordClick = true;
 
+        /** Function for displaying first polish word */
         function startWord()
         {
             document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
@@ -117,6 +123,7 @@
             }
         }
 
+        /* Functions for yes button displaying next word */
         function yesButton()
         {
             /* If english word is empty can't go next words */
@@ -148,15 +155,16 @@
                 var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
                 audio.play();
             }
+            /* Saving in wordCookie active word number to start from this word next time */
         document.cookie="wordCookie = " + wordNumber;
         }
 
-    function middleButton()
-    {
-        var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
-        audio.play();
-    }
-        
+        function middleButton()
+        {
+            var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+            audio.play();
+        } 
+
     </script>
 
     <!-- Bootstrap script -->  
@@ -164,21 +172,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <?php        
-    if(isset($_POST['rememberWord']))
-    {
-        require_once "dbconnect.php";
-        //connect to mysqli database (Host/Username/Password)
-        $connection = mysqli_connect($host, $user, $password) or die("Error " . mysqli_error());
-        //select MySQLi dabatase table
-        $db = mysqli_select_db($connection, "serwer69488_Playground") or die("Error " . mysqli_error());  
-        $sql = mysqli_query($connection, "SELECT * FROM activeWords");
-
-        $sql = $connection -> 
-        query ("UPDATE activeWords SET activeEnglishWord = ".$_COOKIE['wordCookie']."");  
-        echo '<script>window.location = "index.html";</script>';
-    }               
-?>
+    
+    
 
 </body>
 </html>
