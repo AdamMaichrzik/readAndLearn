@@ -71,6 +71,7 @@
         var topClick = 0;
         var bottomClick = 0;
         var wordNumber = activeEnglishWord [0];
+        var firstWordClick = true;
 
         function startWord()
         {
@@ -80,6 +81,12 @@
         /* First click display polish word second display polish sentence */
         function polishClick()
         {
+            if(firstWordClick == true)
+            {
+                var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                audio.play();
+                firstWordClick = false;
+            }
             if (topClick == 0)
             {
                 document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
