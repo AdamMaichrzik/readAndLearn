@@ -1,6 +1,6 @@
 body
 {
-    background-color: #5E5E5E; 
+    background-color:#277da1; 
     color: #E8E8E8;
     font-size: 3rem;
 }
@@ -32,4 +32,31 @@ a:hover
 .button
 {
     font-size: 3vw;
+}
+
+.mainButton
+{
+    border-radius: 12px;
+}
+
+
+
+
+.reset-Button {
+        /*Reset's every elements apperance*/
+        background: none repeat scroll 0 0 transparent;
+        border: medium none;
+        border-spacing: 0;
+        color: #26589F;
+        font-family: 'PT Sans Narrow',sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.42rem;
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        text-decoration: none;
+        text-indent: 0;
+
 }
