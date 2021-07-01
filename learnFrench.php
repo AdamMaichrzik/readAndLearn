@@ -35,8 +35,8 @@
         </div>
         <!-- Polish words-->
         <div class="row">
-            <button type="button" onClick="polishClick()">
-                <div class="col-12" style="text-align: center; height: 100px; color: f9c74f;" id="polishWordDiv"></div>
+            <button type="button" class="reset-Button" style="background-color: transparent" onClick="polishClick()">
+                <div class="col-12" style="text-align: center; height: 150px; color: #f9c74f; font-size: 8vw; padding-top: 8%" id="polishWordDiv"></div>
             </button>
         </div>
         <!-- Border line -->
@@ -44,7 +44,7 @@
         <!-- English words-->
         <div class="row">
             <button type="button" class="reset-Button" style="background-color: transparent" onClick="englishClick()">
-                <div class="col-12" style="text-align: center; height: 100px; color: f9c74f;" id="frenchWordDiv"></div>
+                <div class="col-12" style="text-align: center; height: 150px; color: #f9c74f; font-size: 8vw; padding-top: 8%" id="frenchWordDiv"></div>
             </button>
         </div>
         <!-- Buttons -->
