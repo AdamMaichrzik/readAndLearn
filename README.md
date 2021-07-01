@@ -1,12 +1,20 @@
 Read and learn!
-=======
+===============
 You can check it out on http://www.adammaichrzikplayground.pl/readAndLearn2/index.html.
 
+Originally I was working on this project on Swift programming language but I stucked in one point and I couldn't figure out what I was doing wrong and I left the project. 
 
-On this project I was working a lot. I was trying to do this in Swift language and it was pretty nice but doesn't worked like i wanted it to work and i couldn't figure out how to 
-resolve all the problems - lack of knowladge.
+Then I started learning web developement (from linkedIn Learning) and I remembered about this idea so here it is.  
 
-But luckly i learned on linkedin learning a lot of web development and i have decided to move this project to the web languages and here we are! 
+The main idea for this project is to learn some foreign words from apps like for example duolingo or from reading books. Because when you learn a new word it disapears after few minutes, you have to repeat the words. 
 
-This project is working nice but of course I am going to work on that to make it perfect. 
-I am using html, css, js, php, mysql in this project so I can also learn a lot.
+Also nice thing is to add new words after learning from your memory. It shows you how little you can remember even seconds after learning. Add words and come back to them ass often as you want. 
+
+Now this app is just for me but I will work on adding profiles so everyone can have own account and own words to repeat. 
+
+Usage:
+
++ Learn new foreign word 
++ Learn new foreign word 
++ Learn new foreign word 
+
