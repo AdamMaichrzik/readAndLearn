@@ -27,14 +27,14 @@
     <div class="container">
         <!-- Menu -->
         <div class="row">
-            <div class="col-12"> 
-               <a href="index.html"> Back to menu</a>
+            <div class="col-12 text-center"> 
+               <a href="index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
             </div>
         </div>
-        <div class="row">
+        <!-- Form with inputs for sql database -->
+        <div class="row" style="margin-top: 5%;">
             <div style="margin: auto; text-align:center;">
-                <!-- Form with inputs for sql database -->
-                <form method="post">
+                <form method="post" style="color: #f94144;">
                     <input name="AddEnglishWord" type="text" placeholder="Type English Word">
                     <br/> <br/>
                     <input name="AddEnglishSentence" type="text" placeholder="Type english sentence">
@@ -43,7 +43,7 @@
                     <br/> <br/>
                     <input name="AddPolishSentence" type="text" placeholder="Type polish sentence">
                     <br/><br>
-                    <button name="AddWordButton" style="color: red;" >Add word</button>
+                    <button class="mainButton" name="AddWordButton" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;" >Add word</button>
                 </form>
             </div>
         </div> 
