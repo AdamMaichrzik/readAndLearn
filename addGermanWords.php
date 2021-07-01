@@ -27,8 +27,8 @@
     <div class="container">
         <!-- Menu -->
         <div class="row">
-            <div class="col-12"> 
-               <a href="index.html"> Back to menu</a>
+            <div class="col-12 text-center"> 
+               <a href="index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
             </div>
         </div>
         <div class="row">
