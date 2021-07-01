@@ -23,19 +23,19 @@
     <?php include 'getFrenchWords.php';?>
     <?php include 'sendFrenchActiveWord.php';?>
 </head>
-<body onload="startWord()" style="background-color: #277da1">
+<body onload="startWord()" style="background-color: #293241">
     <div class="container">
         <!-- Menu -->
         <div class="row text-center" style="margin-top: 5%">
             <div class="col-12" > 
                 <form method="post">
-                    <button class="mainButton" name="rememberWord" style="background-color: #577590; border-radius: 12px; color: #f9c74f;"> Back to menu</button>
+                    <button class="mainButton" name="rememberWord" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</button>
                 </form>
             </div>
         </div>
         <!-- Polish words-->
         <div class="row">
-            <button type="button" class="reset-Button" style="background-color: transparent" onClick="polishClick()">
+            <button type="button" class="reset-Button" onClick="polishClick()">
                 <div class="col-12" style="text-align: center; height: 150px; color: #f9c74f; font-size: 8vw; padding-top: 8%" id="polishWordDiv"></div>
             </button>
         </div>
@@ -43,7 +43,7 @@
         <div class="row" style="border-top: 3px solid #E8E8E8; margin-top: 3%; margin-bottom: 3%;"></div>
         <!-- English words-->
         <div class="row">
-            <button type="button" class="reset-Button" style="background-color: transparent" onClick="englishClick()">
+            <button type="button" class="reset-Button" onClick="englishClick()">
                 <div class="col-12" style="text-align: center; height: 150px; color: #f9c74f; font-size: 8vw; padding-top: 8%" id="frenchWordDiv"></div>
             </button>
         </div>
