@@ -43,7 +43,7 @@
         <div class="row" style="border-top: 3px solid #E8E8E8; margin-top: 3%; margin-bottom: 3%;"></div>
         <!-- English words-->
         <div class="row">
-            <button type="button" class="reset-Button" onClick="englishClick()">
+            <button type="button" class="reset-Button" onClick="frenchClick()">
                 <div class="col-12" style="text-align: center; height: 150px; color: #f9c74f; font-size: 8vw; padding-top: 8%" id="frenchWordDiv"></div>
             </button>
         </div>
@@ -88,7 +88,7 @@
 
         }
         /* First german click display german word*/
-        function englishClick()
+        function frenchClick()
         {
             if (bottomClick == 0 )
             {

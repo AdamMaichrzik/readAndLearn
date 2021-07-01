@@ -26,37 +26,37 @@
 <body onload="startWord()">
     <div class="container">
         <!-- Menu -->
-        <div class="row">
+        <div class="row text-center" style="margin-top: 5%">
             <div class="col-12" > 
                 <form method="post">
-                    <button name="rememberWord" style="background-color: red;"> Back to menu</button>
+                    <button class="mainButton" name="rememberWord" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</button>
                 </form>
             </div>
         </div>
         <!-- Polish words-->
         <div class="row">
-            <button type="button" onClick="polishClick()">
-                <div class="col-12" style="text-align: center; height: 100px; color: red;" id="polishWordDiv"></div>
+            <button type="button" class="reset-Button" onClick="polishClick()">
+                <div class="col-12" style="text-align: center; height: 150px; color: #f9c74f; font-size: 8vw; padding-top: 8%" id="polishWordDiv"></div>
             </button>
         </div>
         <!-- Border line -->
         <div class="row" style="border-top: 3px solid #E8E8E8; margin-top: 3%; margin-bottom: 3%;"></div>
-        <!-- English words-->
+        <!-- German words-->
         <div class="row">
-            <button type="button" onClick="englishClick()">
-                <div class="col-12" style="text-align: center; height: 100px; color: red;" id="germanWordDiv"></div>
+            <button type="button" class="reset-Button" onClick="germanClick()">
+                <div class="col-12" style="text-align: center; height: 150px; color: #f9c74f; font-size: 8vw; padding-top: 8%" id="germanWordDiv"></div>
             </button>
         </div>
         <!-- Buttons -->
         <div class="row" style="margin-top: 3%;" >
             <div class="col-4 text-center" >
-                <button type="button" onclick="yesButton()" class="btn btn-light">Yes</button>
+                <button type="button" onclick="yesButton()" class="btn btn-success btn-lg">Yes</button>
             </div>
             <div class="col-4 text-center" >
-                <button type="button" onclick="middleButton()" class="btn btn-light">Middle</button>
+                <button type="button" onclick="middleButton()" class="btn btn-primary btn-lg">Middle</button>
             </div>
             <div class="col-4 text-center">
-                <button  type="button" class="btn btn-light">No</button>
+                <button  type="button" class="btn btn-danger btn-lg">No</button>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@
 
         }
         /* First german click display german word*/
-        function englishClick()
+        function germanClick()
         {
             if (bottomClick == 0 )
             {
