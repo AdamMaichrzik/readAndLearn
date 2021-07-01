@@ -57,3 +57,16 @@ a:hover
 {
     color: #f94144;
 }
+
+#progressLine
+{
+    width: 200px;
+    height: 30px;
+    background-color: white;
+}
+
+#progressBar
+{
+    height: 30px;
+    background-color: green;
+}

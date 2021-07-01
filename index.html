@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
@@ -21,59 +22,74 @@
 
 </head>
 <!-- Content -->
-<body style="background-color: #293241;">
+<body style="background-color: #293241;" onload="progressBar()">
+    <nav class="navbar-top text-center">
+        <h1 style="padding: 13px 13px 0 13px; color: #f94144; font-size: 8vw;">Read and Learn!</h1>
+        <span style="font-size: 5vw;">
+            Website that helps you remember more!
+        </span>
+    </nav>
     <div class="container">
-        <div class="row text-center">
-            <div class="col-12" style="height: 100px;">
-                <h1 style="padding: 13px 13px 0 13px; color: #f94144; font-size: 8vw;">Read and Learn!</h1>
-                <span style="font-size: 5vw;">
-                    Website that helps you remember more!
-                </span>
-            </div>
+        <div class="row text-center mt-4">
+            <h1 class="display-1">Choose language :)</h1>
+                <button class="col-4" style="height: 50px; background-color: #f94144;" onclick="englishLanguage()">English</button>
+                <button class="col-4" style="height: 50px; background-color: #ffbc42;" onclick="germanLanguage()">German</button>
+                <button class="col-4" style="height: 50px; background-color: #0496ff;" onclick="frenchLanguage()">French</button>
         </div>
         <div class="row" style="margin-top: 13%;">
-            <div class="col-2"></div>
-            <div class="col-8 text-center mainButton" style="height: 100px; background-color: #F94144; padding-top: 2%;">
-                <a href="learnWords.php">Learn english</a>
-            </div>
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-8 text-center mainButton" style="height: 100px; background-color: #F3722C; margin-top: 2%;">
-                <a href="addWords.php">Add english words</a>
-            </div>
-            <div class="col-2"></div>
+            <div class="col-1"></div>
+            <div id="languageLearnWords" class="col-10 text-center mainButton" style="height: 300px; background-color: #F94144; padding-top: 2%;"></div>
+            <div class="col-1"></div>
         </div>
-        <div class="row" style="margin-top: 8%;">
-            <div class="col-2"></div>
-            <div class="col-8 text-center mainButton" style="height: 100px; background-color: #F9C74F; padding-top: 2%;">
-                <a href="learnGerman.php">Learn german</a>
-            </div>
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-8 text-center mainButton" style="height: 100px; background-color: #F9844A; margin-top: 2%;">
-                <a href="addGermanWords.php">Add german words</a>
-            </div>
-            <div class="col-2"></div>
+        <div class="row" style="margin-top: 3%;">
+            <div class="col-1"></div>
+            <div id="languageAddWords" class="col-10 text-center mainButton" style="height: 75px; background-color: #F3722C; margin-top: 2%;"></div>
+            <div class="col-1"></div>
+            <div class="col-1"></div>
+            <div id="languageWriteWords" class="col-10 text-center mainButton" style="height: 75px; background-color: #F3722C; margin-top: 2%;"></div>
+            <div class="col-1"></div>
         </div>
-        <div class="row" style="margin-top: 8%;">
-            <div class="col-2"></div>
-            <div class="col-8 text-center mainButton" style="height: 100px; background-color: #277DA1; padding-top: 2%;">
-                <a href="learnFrench.php">Learn french</a>
-            </div>
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-8 text-center mainButton" style="height: 100px; background-color: #4D908E; margin-top: 2%;">
-                <a href="addFrenchWords.php">Add french words</a>
-            </div>
-            <div class="col-2"></div>
-        </div>
+
     </div>
+    <br><br><br><br>
+    <div id="progressLine"> 
+        <div id="progressBar"></div>
+    </div>
+    <div id="progressPercentage"></div>
+
     <!-- Content -->
 
     <!-- Footer-->
     <div class="navbar navbar-fixed-bottom">
         Created by Adam Maichrzik
     </div>
+
+    <!-- Scripts -->
+    <script>
+        function englishLanguage()
+        {
+            document.getElementById("languageLearnWords").innerHTML = '<a href="learnWords.php">Learn english</a>';
+            document.getElementById("languageAddWords").innerHTML = '<a href="addWords.php">Add english words</a>';
+            document.getElementById("languageWriteWords").innerHTML = '<a href="addWords.php">Add english words</a>';
+        }
+    </script>
+
+    <!-- Progress bar script -->
+    <script>
+        //Setting the lenght of words to learn 
+        var wordsLenght = 10;
+        //Setting the words that are learned
+        var wordsLearned = 8;
+        function progressBar()
+        {
+            //Getting the percentage of learned words
+            var progress = (wordsLearned * 100) / wordsLenght;
+            // Writing the percentage to div
+            document.getElementById("progressPercentage").innerHTML = progress + "%";
+            // Setting the progress bar to percentage number and times 2 because 100% = 200px
+            document.getElementById("progressBar").style.width = (progress * 2) + 'px';
+        }
+    </script>
 
     <!-- Bootstrap script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
