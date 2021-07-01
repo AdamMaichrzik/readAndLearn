@@ -39,7 +39,7 @@
                     <br/> <br/>
                     <input name="addPolishWord" type="text" placeholder="Type Polish Translation">
                     <br/><br>
-                    <button class="mainButton" name="AddWordButton" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;" >Add word</button>
+                    <button class="mainButton" name="addWordsButton" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;" >Add word</button>
                 </form>
             </div>
         </div> 
