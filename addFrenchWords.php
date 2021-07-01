@@ -31,17 +31,15 @@
                <a href="index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
             </div>
         </div>
-        <div class="row">
-            <div style="margin: auto; text-align:center;">
-                <!-- Form with inputs for sql database -->
-                <form method="post">
-                    <input name="addFrenchWord" type="text" placeholder="Type French Word">
-                    <br/> <br/>
-                    <input name="addPolishWord" type="text" placeholder="Type Polish Translation">
-                    <br/><br>
-                    <button name="addWordsButton" style="color: red;" >Add word</button>
-                </form>
-            </div>
+        <div class="row text-center" style="margin-top: 5%;">
+            <!-- Form with inputs for sql database -->
+            <form method="post" style="color: #f94144;">
+                <input name="addFrenchWord" type="text" placeholder="Type French Word">
+                <br/> <br/>
+                <input name="addPolishWord" type="text" placeholder="Type Polish Translation">
+                <br/><br>
+                <button class="mainButton" name="AddWordButton" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;" >Add word</button>
+            </form>
         </div> 
         <div class="row">
             <div id="error"></div>
