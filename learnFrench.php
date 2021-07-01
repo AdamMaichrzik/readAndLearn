@@ -50,13 +50,13 @@
         <!-- Buttons -->
         <div class="row" style="margin-top: 3%;" >
             <div class="col-4 text-center" >
-                <button type="button" onclick="yesButton()" class="btn btn-light">Yes</button>
+                <button type="button" onclick="yesButton()" class="btn btn-success btn-lg">Yes</button>
             </div>
             <div class="col-4 text-center" >
-                <button type="button" onclick="middleButton()" class="btn btn-light">Middle</button>
+                <button type="button" onclick="middleButton()" class="btn btn-primary btn-lg">Middle</button>
             </div>
             <div class="col-4 text-center">
-                <button  type="button" class="btn btn-light">No</button>
+                <button  type="button" class="btn btn-danger btn-lg">No</button>
             </div>
         </div>
     </div>
