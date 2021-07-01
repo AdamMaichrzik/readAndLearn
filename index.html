@@ -38,9 +38,21 @@
         </div>
         <div class="row" style="margin-top: 13%;">
             <div class="col-1"></div>
-            <div id="languageLearnWords" class="col-10 text-center mainButton" style="height: 300px; background-color: #F94144; padding-top: 2%;"></div>
+            <div id="languageLearnWords" class="col-10 text-center mainButton" style="height: 150px; background-color: #F94144; padding-top: 2%;"></div>
             <div class="col-1"></div>
         </div>
+        <div class="row mt-4">
+            <div class="col-1"></div>
+            <div class="col-10 text-center">
+                <h1>Your progress, keep it up!</h1>
+                <div id="progressLine"> 
+                    <div id="progressBar"></div>
+                </div>
+                <div id="progressPercentage"></div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        
         <div class="row" style="margin-top: 3%;">
             <div class="col-1"></div>
             <div id="languageAddWords" class="col-10 text-center mainButton" style="height: 75px; background-color: #F3722C; margin-top: 2%;"></div>
@@ -52,10 +64,6 @@
 
     </div>
     <br><br><br><br>
-    <div id="progressLine"> 
-        <div id="progressBar"></div>
-    </div>
-    <div id="progressPercentage"></div>
 
     <!-- Content -->
 
@@ -64,13 +72,28 @@
         Created by Adam Maichrzik
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts START -->
+    <!-- Scripts for changing languages-->
     <script>
         function englishLanguage()
         {
             document.getElementById("languageLearnWords").innerHTML = '<a href="learnWords.php">Learn english</a>';
             document.getElementById("languageAddWords").innerHTML = '<a href="addWords.php">Add english words</a>';
-            document.getElementById("languageWriteWords").innerHTML = '<a href="addWords.php">Add english words</a>';
+            document.getElementById("languageWriteWords").innerHTML = '<a href="#">Write english words</a>';
+        }
+
+        function germanLanguage()
+        {
+            document.getElementById("languageLearnWords").innerHTML = '<a href="learnGerman.php">Learn german</a>';
+            document.getElementById("languageAddWords").innerHTML = '<a href="addGermanWords.php">Add german words</a>';
+            document.getElementById("languageWriteWords").innerHTML = '<a href="#">Write german words</a>';
+        }
+
+        function frenchLanguage()
+        {
+            document.getElementById("languageLearnWords").innerHTML = '<a href="learnFrench.php">Learn french</a>';
+            document.getElementById("languageAddWords").innerHTML = '<a href="addFrenchWords.php">Add french words</a>';
+            document.getElementById("languageWriteWords").innerHTML = '<a href="#">Write french words</a>';
         }
     </script>
 
@@ -79,7 +102,7 @@
         //Setting the lenght of words to learn 
         var wordsLenght = 10;
         //Setting the words that are learned
-        var wordsLearned = 8;
+        var wordsLearned = 5;
         function progressBar()
         {
             //Getting the percentage of learned words
@@ -87,9 +110,10 @@
             // Writing the percentage to div
             document.getElementById("progressPercentage").innerHTML = progress + "%";
             // Setting the progress bar to percentage number and times 2 because 100% = 200px
-            document.getElementById("progressBar").style.width = (progress * 2) + 'px';
+            document.getElementById("progressBar").style.width = progress + '%';
         }
     </script>
+    <!-- Scripts END -->
 
     <!-- Bootstrap script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
