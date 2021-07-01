@@ -15,6 +15,8 @@ Now this app is just for me but I will work on adding profiles so everyone can h
 Usage:
 
 + Learn new foreign word 
-+ Learn new foreign word 
-+ Learn new foreign word 
++ After learning remember the word 
++ Translate the word from you memory 
++ Add word
++ Repeat in the app
 
