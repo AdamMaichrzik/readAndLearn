@@ -20,69 +20,78 @@
     <!-- CSS -->
     <link href="style.css" rel="stylesheet">
 
-    <?php include 'getWords.php'  ?>
+    <?php include 'getWords.php' ?>
+    <?php include 'sendEnglishActiveWord.php';?>
 </head>
-<body onload="showKeyboard()">
+<body onload="showKeyboard(), startWord()">
     <div class="container">
         <!-- Menu -->
-        <div class="row">
-            <div class="col-12 text-center"> 
-               <a href="index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
+        <div class="row text-center" style="margin-top: 5%">
+            <div class="col-12" > 
+                <form method="post">
+                    <button class="mainButton" name="rememberWord" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</button>
+                </form>
             </div>
         </div>
         <div class="text-center" id="englishWord"></div>
         <div class="text-center" id="polishWord" style="display: none;"></div>
-        <div class="text-center" id="typingPolishWord"></div>
+        <div class="text-center" id="typedPolishWord" style="height: 50px; margin-top: 3%;"></div>
 
         <div class="row mt-5">
-            <textarea class="col-12" autofocus name="typedPolishTranslation" id="typedPolishTranslationID" cols="100%" rows="1"> </textarea>
+            <textarea class="col-12" autofocus name="typedPolishTranslation" id="typeingPolishTranslationID" cols="100%" rows="1"> </textarea>
         </div>
 
     </div>
 
     <!-- Scripts -->
-
     <script>
-
+        var activeEnglishTypeWord = <?php echo json_encode($activeEnglishTypeWord); ?>;
+        var wordNumber = activeEnglishTypeWord [0];
         var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
         var PolishWords = <?php echo json_encode($PolishWords); ?>;
-        document.getElementById("englishWord").innerHTML = EnglishWords[0];
-        document.getElementById("polishWord").innerHTML = PolishWords[0];
+        var sliceEnglishWordNumber = 0;
 
     // Click to the textarea input to show keyboard on mobile
     function showKeyboard()
     {
-        document.getElementById("typedPolishTranslationID").click();
+        document.getElementById("typeingPolishTranslationID").click();
+    }
+    function startWord()
+    {
+        document.getElementById("englishWord").innerHTML = EnglishWords[wordNumber];
+        document.getElementById("polishWord").innerHTML = PolishWords[wordNumber];
     }
 
-    var sliceEnglishWordNumber = 0;
     //Comparing the letter from textarea with english word
-    function logMessage(message) 
+    function checkingTheLetter(message) 
     {
-        typedPolishTranslationID.value = "";
+        typeingPolishTranslationID.value = "";
 
         if(document.getElementById("polishWord").innerHTML.slice(sliceEnglishWordNumber, (sliceEnglishWordNumber + 1)) == message)
         {
             console.log(sliceEnglishWordNumber);
-            document.getElementById("typingPolishWord").innerHTML = document.getElementById("typingPolishWord").innerHTML + message;
+            document.getElementById("typedPolishWord").innerHTML = document.getElementById("typedPolishWord").innerHTML + message;
             sliceEnglishWordNumber ++; 
         }
-        if(document.getElementById("polishWord").innerHTML == document.getElementById("typingPolishWord").innerHTML)
+        if(document.getElementById("polishWord").innerHTML == document.getElementById("typedPolishWord").innerHTML)
         {
-            document.getElementById("typingPolishWord").innerHTML = "";
-            document.getElementById("englishWord").innerHTML = "Cat";
-            docuemnt.getElementById("polishWord").innerHTML = "Kot";
+            sliceEnglishWordNumber = 0;
+            wordNumber++;
+            document.getElementById("typedPolishWord").innerHTML = "";
+            document.getElementById("englishWord").innerHTML = EnglishWords[wordNumber];
+            document.getElementById("polishWord").innerHTML = PolishWords[wordNumber];
         }
+        document.cookie="typeWordCookie = " + wordNumber;
     }
 
         // Getting the input key
-        let typedPolishTranslation = document.getElementById("typedPolishTranslationID");
+        let typedPolishTranslation = document.getElementById("typeingPolishTranslationID");
             typedPolishTranslation.addEventListener('keydown', (e) => 
             {
-                logMessage(`${e.key}`);
+                checkingTheLetter(`${e.key}`);
             });
 
-        
+    
     </script>
     
     <!-- Bootstrap script -->  
