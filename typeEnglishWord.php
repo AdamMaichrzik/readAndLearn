@@ -20,6 +20,7 @@
     <!-- CSS -->
     <link href="style.css" rel="stylesheet">
 
+    <?php include 'getWords.php'  ?>
 </head>
 <body onload="showKeyboard()">
     <div class="container">
@@ -29,12 +30,12 @@
                <a href="index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
             </div>
         </div>
-        <div class="text-center" id="englishWord">House</div>
-        <div class="text-center" id="polishWord" style="display: none;">Dom</div>
+        <div class="text-center" id="englishWord"></div>
+        <div class="text-center" id="polishWord" style="display: none;"></div>
         <div class="text-center" id="typingPolishWord"></div>
 
         <div class="row mt-5">
-            <textarea class="col-12" autofocus style="color: white;" name="typedPolishTranslation" id="typedPolishTranslationID" cols="100%" rows="1"> </textarea>
+            <textarea class="col-12" autofocus name="typedPolishTranslation" id="typedPolishTranslationID" cols="100%" rows="1"> </textarea>
         </div>
 
     </div>
@@ -43,29 +44,45 @@
 
     <script>
 
-function showKeyboard()
-{
-    document.getElementById("typedPolishTranslationID").click();
-}
+        var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
+        var PolishWords = <?php echo json_encode($PolishWords); ?>;
+        document.getElementById("englishWord").innerHTML = EnglishWords[0];
+        document.getElementById("polishWord").innerHTML = PolishWords[0];
+
+    // Click to the textarea input to show keyboard on mobile
+    function showKeyboard()
+    {
+        document.getElementById("typedPolishTranslationID").click();
+    }
 
     var sliceEnglishWordNumber = 0;
-    //Comparing the key
+    //Comparing the letter from textarea with english word
     function logMessage(message) 
     {
-        
+        typedPolishTranslationID.value = "";
+
         if(document.getElementById("polishWord").innerHTML.slice(sliceEnglishWordNumber, (sliceEnglishWordNumber + 1)) == message)
         {
             console.log(sliceEnglishWordNumber);
             document.getElementById("typingPolishWord").innerHTML = document.getElementById("typingPolishWord").innerHTML + message;
             sliceEnglishWordNumber ++; 
         }
+        if(document.getElementById("polishWord").innerHTML == document.getElementById("typingPolishWord").innerHTML)
+        {
+            document.getElementById("typingPolishWord").innerHTML = "";
+            document.getElementById("englishWord").innerHTML = "Cat";
+            docuemnt.getElementById("polishWord").innerHTML = "Kot";
+        }
     }
 
         // Getting the input key
         let typedPolishTranslation = document.getElementById("typedPolishTranslationID");
-        typedPolishTranslation.addEventListener('keydown', (e) => {
-            logMessage(`${e.key}`);
-        });
+            typedPolishTranslation.addEventListener('keydown', (e) => 
+            {
+                logMessage(`${e.key}`);
+            });
+
+        
     </script>
     
     <!-- Bootstrap script -->  
