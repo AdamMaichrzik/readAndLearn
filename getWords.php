@@ -25,5 +25,6 @@
         while($row = mysqli_fetch_array($sql))
         {
             $activeEnglishWord[] = $row["activeEnglishWord"];
+            $activeEnglishTypeWord[] = $row["activeEnglishTypeWord"];
         }
 ?>
