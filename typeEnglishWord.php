@@ -21,7 +21,7 @@
     <link href="style.css" rel="stylesheet">
 
 </head>
-<body>
+<body onload="showKeyboard()">
     <div class="container">
         <!-- Menu -->
         <div class="row">
@@ -29,10 +29,12 @@
                <a href="index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
             </div>
         </div>
-        <div class="text-center" id="englishWord">a</div>
+        <div class="text-center" id="englishWord">House</div>
+        <div class="text-center" id="polishWord" style="display: none;">Dom</div>
+        <div class="text-center" id="typingPolishWord"></div>
 
-        <div style="margin-top: 20%;">
-            <textarea name="typedPolishTranslation" id="typedPolishTranslationID" cols="15" rows="1"></textarea>
+        <div class="row mt-5">
+            <textarea class="col-12" autofocus style="color: white;" name="typedPolishTranslation" id="typedPolishTranslationID" cols="100%" rows="1"> </textarea>
         </div>
 
     </div>
@@ -41,13 +43,25 @@
 
     <script>
 
+function showKeyboard()
+{
+    document.getElementById("typedPolishTranslationID").click();
+}
+
+    var sliceEnglishWordNumber = 0;
+    //Comparing the key
     function logMessage(message) 
     {
-        if(document.getElementById("englishWord").innerHTML == message)
+        
+        if(document.getElementById("polishWord").innerHTML.slice(sliceEnglishWordNumber, (sliceEnglishWordNumber + 1)) == message)
         {
-            document.getElementById("englishWord").innerHTML = "Sucess!";
+            console.log(sliceEnglishWordNumber);
+            document.getElementById("typingPolishWord").innerHTML = document.getElementById("typingPolishWord").innerHTML + message;
+            sliceEnglishWordNumber ++; 
         }
     }
+
+        // Getting the input key
         let typedPolishTranslation = document.getElementById("typedPolishTranslationID");
         typedPolishTranslation.addEventListener('keydown', (e) => {
             logMessage(`${e.key}`);
