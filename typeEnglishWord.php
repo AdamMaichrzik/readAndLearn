@@ -80,7 +80,15 @@
             document.getElementById("typedPolishWord").innerHTML = "";
             document.getElementById("englishWord").innerHTML = EnglishWords[wordNumber];
             document.getElementById("polishWord").innerHTML = PolishWords[wordNumber];
+            /* Going to the first word from last  */
+         if(wordNumber + 1 > EnglishWords.length)
+            {
+                document.getElementById("polishWord").innerHTML = PolishWords[0];
+                document.getElementById("englishWord").innerHTML = EnglishWords[0];
+                wordNumber = 0;
+            }
         }
+         
         document.cookie="typeWordCookie = " + wordNumber;
     }
 
