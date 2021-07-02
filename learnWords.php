@@ -66,7 +66,6 @@
     
     <script>
         /* Reading file from php and putting into divs */
-
         var activeEnglishWord = <?php echo json_encode($activeEnglishWord); ?>;
         var PolishWords = <?php echo json_encode($PolishWords); ?>;
         var PolishSentence = <?php echo json_encode($PolishSentence); ?>;
@@ -156,7 +155,7 @@
                 audio.play();
             }
             /* Saving in wordCookie active word number to start from this word next time */
-        document.cookie="wordCookie = " + wordNumber;
+        document.cookie="learnWordCookie = " + wordNumber;
         }
 
         function middleButton()
@@ -171,9 +170,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    
-    
 
 </body>
 </html>
