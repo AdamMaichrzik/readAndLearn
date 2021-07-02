@@ -9,7 +9,7 @@
         $sql = mysqli_query($connection, "SELECT * FROM activeWords");
         //Sending data to DB
         $sql = $connection -> 
-        query ("UPDATE activeWords SET activeEnglishWord = ".$_COOKIE['wordCookie']."");  
+        query("UPDATE `activeWords` SET `activeEnglishWord`=".$_COOKIE['learnWordCookie'].",`activeEnglishTypeWord`= ".$_COOKIE['typeWordCookie']." WHERE 1");
         echo '<script>window.location = "index.html";</script>';
     }               
 ?>
