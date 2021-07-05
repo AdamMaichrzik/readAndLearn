@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="animations.css">
 
     <!-- CSS -->
-    <link href="CSS/style.css" rel="stylesheet">
+    <link href="../CSS/style.css" rel="stylesheet">
 
     <!-- PHP file for getting the words from SQL DB-->
     <?php include 'getWords.php';?>
@@ -88,7 +88,7 @@
         {
             if(firstWordClick == true)
             {
-                var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                var audio = new Audio('../sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
                 audio.play();
                 firstWordClick = false;
             }
@@ -100,7 +100,7 @@
             else if(topClick == 1)
             {
                 document.getElementById("polishSentenceDiv").innerHTML = PolishSentence[wordNumber];
-                var audio = new Audio('sounds/Sentences/Polish/Sentence' + [wordNumber] + '.mp3');
+                var audio = new Audio('../sounds/Sentences/Polish/Sentence' + [wordNumber] + '.mp3');
                 audio.play();
             }
         }
@@ -111,13 +111,13 @@
             {
                 document.getElementById("englishWordDiv").innerHTML = EnglishWords[wordNumber];
                 bottomClick += 1;
-                var audio = new Audio('sounds/Words/English/Word' + [wordNumber] + '.mp3');
+                var audio = new Audio('../sounds/Words/English/Word' + [wordNumber] + '.mp3');
                 audio.play();
             }
             else if(bottomClick == 1)
             {
                 document.getElementById("englishSentenceDiv").innerHTML = EnglishSentence[wordNumber];
-                var audio = new Audio('sounds/Sentences/English/Sentence' + [wordNumber] + '.mp3');
+                var audio = new Audio('../sounds/Sentences/English/Sentence' + [wordNumber] + '.mp3');
                 audio.play();
             }
         }
