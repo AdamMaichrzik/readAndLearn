@@ -21,8 +21,8 @@
     <link href="../CSS/style.css" rel="stylesheet">
 
     <!-- PHP file for getting the words from SQL DB-->
-    <?php include 'getEnglishWords.php';?>
-    <?php include 'sendEnglishActiveWord.php';?>
+    <?php include 'getFrenchWords.php';?>
+    <?php include 'sendFrenchActiveWord.php';?>
 
 </head>
 <body onload="showKeyboard(), startWord()">
@@ -35,69 +35,70 @@
                 </form>
             </div>
         </div>
-        <div class="text-center" id="englishWord"></div>
+        <div class="text-center" id="frenchWord"></div>
         <div class="text-center" id="polishWord" style="display: none;"></div>
         <div class="text-center" id="typedPolishWord" style="height: 50px; margin-top: 3%;"></div>
 
         <div class="row mt-5">
-            <textarea style="color:transparent; background-color: #293241" class="col-12" autofocus name="typedPolishTranslation" id="typeingPolishTranslationID" cols="100%" rows="1"> </textarea>
+            <textarea style="color:transparent; background-color: #293241" class="col-12" autofocus id="typedPolishTranslationID" cols="100%" rows="1"> </textarea>
         </div>
     </div>
 
     <!-- Scripts -->
     <script>
-        var activeEnglishTypeWord = <?php echo json_encode($activeEnglishTypeWord); ?>;
-        var wordNumber = activeEnglishTypeWord [0];
-        var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
-        var PolishWords = <?php echo json_encode($PolishWords); ?>;
-        var sliceEnglishWordNumber = 0;
+        var activeFrenchTypeWord = <?php echo json_encode($activeFrenchTypeWord); ?>;
+        var wordNumber = activeFrenchTypeWord[0];
+        var frenchWord = <?php echo json_encode($frenchWord); ?>;
+        var polishWord = <?php echo json_encode($polishWord); ?>;
+        var sliceFrenchWordNumber = 0;
 
     // Click to the textarea input to show keyboard on mobile
     function showKeyboard()
     {
-        document.getElementById("typeingPolishTranslationID").click();
+        document.getElementById("typedPolishTranslationID").click();
     }
     function startWord()
     {
-        document.getElementById("englishWord").innerHTML = EnglishWords[wordNumber];
-        document.getElementById("polishWord").innerHTML = PolishWords[wordNumber];
+        document.getElementById("frenchWord").innerHTML = frenchWord[wordNumber];
+        document.getElementById("polishWord").innerHTML = polishWord[wordNumber];
     }
 
     //Comparing the letter from textarea with english word
     function checkingTheLetter(message) 
     {
-        typeingPolishTranslationID.value = "";
+        typedPolishTranslationID.value = "";
 
-        if(document.getElementById("polishWord").innerHTML.slice(sliceEnglishWordNumber, (sliceEnglishWordNumber + 1)) == message)
+        if(document.getElementById("polishWord").innerHTML.slice(sliceFrenchWordNumber, (sliceFrenchWordNumber + 1)) == message)
         {
-            console.log(sliceEnglishWordNumber);
+            console.log(sliceFrenchWordNumber);
             document.getElementById("typedPolishWord").innerHTML = document.getElementById("typedPolishWord").innerHTML + message;
-            sliceEnglishWordNumber ++; 
+            sliceFrenchWordNumber ++; 
         }
         if(document.getElementById("polishWord").innerHTML == document.getElementById("typedPolishWord").innerHTML)
         {
-            sliceEnglishWordNumber = 0;
+            sliceFrenchWordNumber = 0;
             wordNumber++;
             document.getElementById("typedPolishWord").innerHTML = "";
-            document.getElementById("englishWord").innerHTML = EnglishWords[wordNumber];
-            document.getElementById("polishWord").innerHTML = PolishWords[wordNumber];
+            document.getElementById("frenchWord").innerHTML = frenchWord[wordNumber];
+            document.getElementById("polishWord").innerHTML = polishWord[wordNumber];
             /* Going to the first word from last  */
-         if(wordNumber + 1 > EnglishWords.length)
+         if(wordNumber + 1 > frenchWord.length)
             {
-                document.getElementById("polishWord").innerHTML = PolishWords[0];
-                document.getElementById("englishWord").innerHTML = EnglishWords[0];
+                document.getElementById("polishWord").innerHTML = polishWord[0];
+                document.getElementById("frenchWord").innerHTML = frenchWord[0];
                 wordNumber = 0;
             }
         }
-        document.cookie="typeWordCookie = " + wordNumber;
+        document.cookie="typeFrenchWordCookie = " + wordNumber;
+        console.log(document.cookie="typeFrenchWordCookie = " + wordNumber);
     }
 
-        // Getting the input key
-        let typedPolishTranslation = document.getElementById("typeingPolishTranslationID");
-        typedPolishTranslation.addEventListener('keydown', (e) => 
-        {
-            checkingTheLetter(`${e.key}`);
-        });
+    // Getting the input key
+    let typedPolishTranslation = document.getElementById("typedPolishTranslationID");
+    typedPolishTranslation.addEventListener('keydown', (e) => 
+    {
+        checkingTheLetter(`${e.key}`);
+    });
     </script>
     
     <!-- Bootstrap script -->  
