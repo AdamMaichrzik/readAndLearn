@@ -10,6 +10,6 @@
         //Sending data to DB
         $sql = $connection -> 
         query("UPDATE `activeWords` SET `activeEnglishWord`=".$_COOKIE['learnWordCookie'].",`activeEnglishTypeWord`= ".$_COOKIE['typeWordCookie']."");
-        echo '<script>window.location = "../index.html";</script>';
+        echo '<script>window.location = "englishLanguageMainPage.html";</script>';
     }               
 ?>
