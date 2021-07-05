@@ -28,7 +28,7 @@
         <!-- Menu -->
         <div class="row">
             <div class="col-12 text-center"> 
-               <a href="../index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
+               <a href="englishLanguageMainPage.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
             </div>
         </div>
         <!-- Form with inputs for sql database -->

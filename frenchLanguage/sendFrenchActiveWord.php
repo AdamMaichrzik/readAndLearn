@@ -10,6 +10,6 @@
 
         $sql = $connection -> 
         query ("UPDATE activeWords SET activeFrenchWord = ".$_COOKIE['wordCookie']."");  
-        echo '<script>window.location = "../index.html";</script>';
+        echo '<script>window.location = "frenchLanguageMainPage.html";</script>';
     }               
 ?>

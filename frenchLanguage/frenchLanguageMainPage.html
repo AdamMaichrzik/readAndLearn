@@ -18,24 +18,52 @@
     <link rel="stylesheet" href="animations.css">
 
     <!-- CSS -->
-    <link href="CSS/style.css" rel="stylesheet">
+    <link href="../CSS/style.css" rel="stylesheet">
 
 </head>
 <!-- Content -->
 <body style="background-color: #293241;" onload="progressBar()">
     <nav class="navbar-top text-center">
-        <h1 style="padding: 13px 13px 0 13px; color: #f94144; font-size: 8vw;">Read and Learn!</h1>
+        <a href="../index.html">
+            <h1 style="padding: 13px 13px 0 13px; color: #f94144; font-size: 8vw;">Read and Learn!</h1>
+        </a>
         <span style="font-size: 5vw;">
             Website that helps you remember more!
         </span>
     </nav>
     <div class="container">
-        <div class="row text-center mt-4">
-            <h1 class="display-1">Choose language :)</h1>
-                <a href="englishLanguage/englishLanguageMainPage.html" class="col-4" style="height: 50px; background-color: #f94144;">English</a>
-                <a href="germanLanguage/germanLanguageMainPage.html" class="col-4" style="height: 50px; background-color: #ffbc42;" >German</a>
-                <a href="frenchLanguage/frenchLanguageMainPage.html" class="col-4" style="height: 50px; background-color: #0496ff;" >French</a>
+        <div class="row" style="margin-top: 13%;">
+            <div class="col-1"></div>
+            <div id="languageLearnWords" class="col-10 text-center mainButton" style="height: 150px; background-color: #F94144; padding-top: 2%;">
+                <a href="learnFrench.php">Learn French</a>
+            </div>
+            <div class="col-1"></div>
         </div>
+        <div class="row mt-4">
+            <div class="col-1"></div>
+            <div class="col-10 text-center">
+                <h1>Your progress, keep it up!</h1>
+                <div id="progressLine"> 
+                    <div id="progressBar"></div>
+                </div>
+                <div id="progressPercentage"></div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        
+        <div class="row" style="margin-top: 3%;">
+            <div class="col-1"></div>
+            <div id="languageAddWords" class="col-10 text-center mainButton" style="height: 75px; background-color: #F3722C; margin-top: 2%;">
+                <a href="addFrenchWords.php">Add french words</a>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-1"></div>
+            <div id="languageWriteWords" class="col-10 text-center mainButton" style="height: 75px; background-color: #F3722C; margin-top: 2%;">
+                <a href="typeFrenchWord.php">Write french words</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
     </div>
     <br><br><br><br>
     <!-- Content -->
@@ -46,22 +74,6 @@
     </div>
 
     <!-- Scripts START -->
-    <!-- Scripts for changing languages-->
-    <script>
-        function germanLanguage()
-        {
-            document.getElementById("languageLearnWords").innerHTML = '<a href="germanLanguage/learnGerman.php">Learn german</a>';
-            document.getElementById("languageAddWords").innerHTML = '<a href="germanLanguage/addGermanWords.php">Add german words</a>';
-            document.getElementById("languageWriteWords").innerHTML = '<a href="#">Write german words</a>';
-        }
-
-        function frenchLanguage()
-        {
-            document.getElementById("languageLearnWords").innerHTML = '<a href="frenchLanguage/learnFrench.php">Learn french</a>';
-            document.getElementById("languageAddWords").innerHTML = '<a href="frenchLanguage/addFrenchWords.php">Add french words</a>';
-            document.getElementById("languageWriteWords").innerHTML = '<a href="#">Write french words</a>';
-        }
-    </script>
 
     <!-- Progress bar script -->
     <script>

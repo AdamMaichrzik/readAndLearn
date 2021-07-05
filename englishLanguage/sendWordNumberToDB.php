@@ -11,6 +11,6 @@
         $sql = $connection -> 
         query ("UPDATE englishWordsTable SET activeWord = '".wordNumber."' WHERE ID = '0'");  
         
-        echo '<script>window.location = "../index.html";</script>';
+        echo '<script>window.location = "englishLanguageMainPage.html";</script>';
     }               
 ?>
