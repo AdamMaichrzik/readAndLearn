@@ -20,7 +20,7 @@
     <!-- CSS -->
     <link href="../CSS/style.css" rel="stylesheet">
 
-    <?php include 'getEnglishWords.php';?>
+    <?php include 'getFrenchWords.php';?>
 
 </head>
 <body>
@@ -28,32 +28,31 @@
         <!-- Menu -->
         <div class="row">
             <div class="col-12 text-center"> 
-               <a href="englishLanguageMainPage.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
+               <a href="frenchLanguageMainPage.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
             </div>
         </div>
-        <div class="row text-center mt-5">
-            <div class="col-6">English</div>
+        <div class="row mt-5">
+            <div class="col-6">French</div>
             <div class="col-6">Polish</div>
-            <div id="englishWordsTable" class="col-6 mt-5"></div>
+            <div id="frenchWordsTable" class="col-6 mt-5"></div>
             <div id="polishWordsTable" class="col-6 mt-5"></div>
         </div>
     </div>
 
     <!-- Scripts -->
     <script>
-        var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
-        var PolishWords = <?php echo json_encode($PolishWords); ?>;
+        var frenchWord = <?php echo json_encode($frenchWord); ?>;
+        var polishWord = <?php echo json_encode($polishWord); ?>;
         var i = 0;
-        while(i < EnglishWords.length)
+        while(i < frenchWord.length)
         {
-            document.getElementById("englishWordsTable").innerHTML = document.getElementById("englishWordsTable").innerHTML + EnglishWords[i] + '<br>';
-            document.getElementById("englishWordsTable").style.border = '2px solid white';
-            document.getElementById("polishWordsTable").innerHTML = document.getElementById("polishWordsTable").innerHTML + PolishWords[i] + '<br>';
+            document.getElementById("frenchWordsTable").innerHTML = document.getElementById("frenchWordsTable").innerHTML + frenchWord[i] + '<br> <br>';
+            document.getElementById("frenchWordsTable").style.border = '2px solid white';
+            document.getElementById("polishWordsTable").innerHTML = document.getElementById("polishWordsTable").innerHTML + polishWord[i] + '<br> <br>';
             document.getElementById("polishWordsTable").style.border = '2px solid white';
             i++;
         }
     </script>
-
     
     <!-- Bootstrap script -->  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>

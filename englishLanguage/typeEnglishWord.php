@@ -40,7 +40,7 @@
         <div class="text-center" id="typedPolishWord" style="height: 50px; margin-top: 3%;"></div>
 
         <div class="row mt-5">
-            <textarea style="color:transparent; background-color: #293241" class="col-12" autofocus name="typedPolishTranslation" id="typeingPolishTranslationID" cols="100%" rows="1"> </textarea>
+            <textarea style="color:transparent; background-color: #293241" class="col-12" autofocus id="typeingPolishTranslationID" cols="100%" rows="1"> </textarea>
         </div>
     </div>
 
@@ -98,6 +98,7 @@
         {
             checkingTheLetter(`${e.key}`);
         });
+
     </script>
     
     <!-- Bootstrap script -->  
