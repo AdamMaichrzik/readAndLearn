@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="animations.css">
 
     <!-- CSS -->
-    <link href="style.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
 
     <!-- PHP file for getting the words from SQL DB-->
     <?php include 'getWords.php';?>

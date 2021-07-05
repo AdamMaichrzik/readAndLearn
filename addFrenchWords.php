@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="animations.css">
 
     <!-- CSS -->
-    <link href="style.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
 
     <?php include 'sendFrenchWordsToDB.php';?>
 

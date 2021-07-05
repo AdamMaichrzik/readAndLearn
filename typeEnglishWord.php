@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="animations.css">
 
     <!-- CSS -->
-    <link href="style.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
 
     <!-- PHP file for getting the words from SQL DB-->
     <?php include 'getWords.php';?>
@@ -90,16 +90,15 @@
                 wordNumber = 0;
             }
         }
-         
         document.cookie="typeWordCookie = " + wordNumber;
     }
 
         // Getting the input key
         let typedPolishTranslation = document.getElementById("typeingPolishTranslationID");
-            typedPolishTranslation.addEventListener('keydown', (e) => 
-            {
-                checkingTheLetter(`${e.key}`);
-            });
+        typedPolishTranslation.addEventListener('keydown', (e) => 
+        {
+            checkingTheLetter(`${e.key}`);
+        });
     </script>
     
     <!-- Bootstrap script -->  
