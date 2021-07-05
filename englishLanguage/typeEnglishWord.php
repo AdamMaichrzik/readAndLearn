@@ -21,7 +21,7 @@
     <link href="../CSS/style.css" rel="stylesheet">
 
     <!-- PHP file for getting the words from SQL DB-->
-    <?php include 'getWords.php';?>
+    <?php include 'getEnglishWords.php';?>
     <?php include 'sendEnglishActiveWord.php';?>
 
 </head>
