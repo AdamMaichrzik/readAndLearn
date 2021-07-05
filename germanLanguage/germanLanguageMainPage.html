@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width,initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+    <title>Read And Learn - app for learning english from books</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="animations.css">
+
+    <!-- CSS -->
+    <link href="../CSS/style.css" rel="stylesheet">
+
+</head>
+<!-- Content -->
+<body style="background-color: #293241;" onload="progressBar()">
+    <nav class="navbar-top text-center">
+        <a href="../index.html">
+            <h1 style="padding: 13px 13px 0 13px; color: #f94144; font-size: 8vw;">Read and Learn!</h1>
+        </a>
+        <span style="font-size: 5vw;">
+            Website that helps you remember more!
+        </span>
+    </nav>
+    <div class="container">
+        <div class="row" style="margin-top: 13%;">
+            <div class="col-1"></div>
+            <div id="languageLearnWords" class="col-10 text-center mainButton" style="height: 150px; background-color: #F94144; padding-top: 2%;">
+                <a href="learnGerman.php">Learn german</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-1"></div>
+            <div class="col-10 text-center">
+                <h1>Your progress, keep it up!</h1>
+                <div id="progressLine"> 
+                    <div id="progressBar"></div>
+                </div>
+                <div id="progressPercentage"></div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        
+        <div class="row" style="margin-top: 3%;">
+            <div class="col-1"></div>
+            <div id="languageAddWords" class="col-10 text-center mainButton" style="height: 75px; background-color: #F3722C; margin-top: 2%;">
+                <a href="addGermanWords.php">Add german words</a>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-1"></div>
+            <div id="languageWriteWords" class="col-10 text-center mainButton" style="height: 75px; background-color: #F3722C; margin-top: 2%;">
+                <a href="typeGermanWord.php">Write german words</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+    </div>
+    <br><br><br><br>
+    <!-- Content -->
+
+    <!-- Footer-->
+    <div class="navbar navbar-fixed-bottom">
+        Created by Adam Maichrzik
+    </div>
+
+    <!-- Scripts START -->
+
+    <!-- Progress bar script -->
+    <script>
+        //Setting the lenght of words to learn 
+        var wordsLenght = 10;
+        //Setting the words that are learned
+        var wordsLearned = 5;
+        function progressBar()
+        {
+            //Getting the percentage of learned words
+            var progress = (wordsLearned * 100) / wordsLenght;
+            // Writing the percentage to div
+            document.getElementById("progressPercentage").innerHTML = progress + "%";
+            // Setting the progress bar to percentage number and times 2 because 100% = 200px
+            document.getElementById("progressBar").style.width = progress + '%';
+        }
+    </script>
+    <!-- Scripts END -->
+
+    <!-- Bootstrap script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
