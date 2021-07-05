@@ -21,8 +21,8 @@
     <link href="../CSS/style.css" rel="stylesheet">
 
     <!-- PHP file for getting the words from SQL DB-->
-    <?php include 'getFrenchWords.php';?>
-    <?php include 'sendFrenchActiveWord.php';?>
+    <?php include 'getGermanWords.php';?>
+    <?php include 'sendGermanActiveWord.php';?>
 
 </head>
 <body onload="showKeyboard(), startWord()">
@@ -35,7 +35,7 @@
                 </form>
             </div>
         </div>
-        <div class="text-center" id="frenchWord"></div>
+        <div class="text-center" id="germanWord"></div>
         <div class="text-center" id="polishWord" style="display: none;"></div>
         <div class="text-center" id="typedPolishWord" style="height: 50px; margin-top: 3%;"></div>
 
@@ -46,11 +46,11 @@
 
     <!-- Scripts -->
     <script>
-        var activeFrenchTypeWord = <?php echo json_encode($activeFrenchTypeWord); ?>;
-        var wordNumber = activeFrenchTypeWord[0];
-        var frenchWord = <?php echo json_encode($frenchWord); ?>;
+        var activeGermanTypeWord = <?php echo json_encode($activeGermanTypeWord); ?>;
+        var wordNumber = activeGermanTypeWord[0];
+        var germanWord = <?php echo json_encode($germanWord); ?>;
         var polishWord = <?php echo json_encode($polishWord); ?>;
-        var sliceFrenchWordNumber = 0;
+        var sliceGermanWordNumber = 0;
 
     // Click to the textarea input to show keyboard on mobile
     function showKeyboard()
@@ -59,7 +59,7 @@
     }
     function startWord()
     {
-        document.getElementById("frenchWord").innerHTML = frenchWord[wordNumber];
+        document.getElementById("germanWord").innerHTML = germanWord[wordNumber];
         document.getElementById("polishWord").innerHTML = polishWord[wordNumber];
     }
 
@@ -68,28 +68,28 @@
     {
         typedPolishTranslationID.value = "";
 
-        if(document.getElementById("polishWord").innerHTML.slice(sliceFrenchWordNumber, (sliceFrenchWordNumber + 1)) == message)
+        if(document.getElementById("polishWord").innerHTML.slice(sliceGermanWordNumber, (sliceGermanWordNumber + 1)) == message)
         {
-            console.log(sliceFrenchWordNumber);
+            console.log(sliceGermanWordNumber);
             document.getElementById("typedPolishWord").innerHTML = document.getElementById("typedPolishWord").innerHTML + message;
-            sliceFrenchWordNumber ++; 
+            sliceGermanWordNumber ++; 
         }
         if(document.getElementById("polishWord").innerHTML == document.getElementById("typedPolishWord").innerHTML)
         {
-            sliceFrenchWordNumber = 0;
+            sliceGermanWordNumber = 0;
             wordNumber++;
             document.getElementById("typedPolishWord").innerHTML = "";
-            document.getElementById("frenchWord").innerHTML = frenchWord[wordNumber];
+            document.getElementById("germanWord").innerHTML = germanWord[wordNumber];
             document.getElementById("polishWord").innerHTML = polishWord[wordNumber];
             /* Going to the first word from last  */
-         if(wordNumber + 1 > frenchWord.length)
+         if(wordNumber + 1 > germanWord.length)
             {
                 document.getElementById("polishWord").innerHTML = polishWord[0];
-                document.getElementById("frenchWord").innerHTML = frenchWord[0];
+                document.getElementById("germanWord").innerHTML = germanWord[0];
                 wordNumber = 0;
             }
         }
-        document.cookie="typeFrenchWordCookie = " + wordNumber;
+        document.cookie="typeGermanWordCookie = " + wordNumber;
     }
 
     // Getting the input key

@@ -23,5 +23,6 @@
         while($row = mysqli_fetch_array($sql))
         {
             $activeGermanWord[] = $row["activeGermanWord"];
+            $activeGermanTypeWord[] = $row["activeGermanTypeWord"];
         }
 ?>
