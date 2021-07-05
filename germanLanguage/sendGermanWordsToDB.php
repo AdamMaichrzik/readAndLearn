@@ -1,5 +1,5 @@
 <?php
-    require_once "dbconnect.php";
+    require_once "../dbconnect.php";
     //connect to mysqli database (Host/Username/Password)
     $connection = mysqli_connect($host, $user, $password) or die("Error " . mysqli_error());
     //select MySQLi dabatase table

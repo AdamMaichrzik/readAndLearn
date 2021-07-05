@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="animations.css">
 
     <!-- CSS -->
-    <link href="CSS/style.css" rel="stylesheet">
+    <link href="../CSS/style.css" rel="stylesheet">
 
     <!-- Including php files  -->
     <?php include 'getGermanWords.php';?>

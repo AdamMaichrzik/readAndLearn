@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="animations.css">
 
     <!-- CSS -->
-    <link href="CSS/style.css" rel="stylesheet">
+    <link href="../CSS/style.css" rel="stylesheet">
 
     <?php include 'sendGermanWordsToDB.php';?>
 
@@ -28,7 +28,7 @@
         <!-- Menu -->
         <div class="row">
             <div class="col-12 text-center"> 
-               <a href="index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
+               <a href="../index.html" style="background-color: #f94144; border-radius: 12px; color: #f9c74f;"> Back to menu</a>
             </div>
         </div>
         <div class="row" style="margin-top: 5%;"> 
