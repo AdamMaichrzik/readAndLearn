@@ -20,8 +20,10 @@
     <!-- CSS -->
     <link href="style.css" rel="stylesheet">
 
-    <?php include 'getWords.php' ?>
+    <!-- PHP file for getting the words from SQL DB-->
+    <?php include 'getWords.php';?>
     <?php include 'sendEnglishActiveWord.php';?>
+
 </head>
 <body onload="showKeyboard(), startWord()">
     <div class="container">
@@ -98,8 +100,6 @@
             {
                 checkingTheLetter(`${e.key}`);
             });
-
-    
     </script>
     
     <!-- Bootstrap script -->  
