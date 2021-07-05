@@ -123,8 +123,7 @@
             }
         // Cookie saving last showed word for displaying it next time 
         document.cookie="wordCookie = " + wordNumber;
-        }
-        
+        } 
     </script>
 
     <!-- Bootstrap script -->  
