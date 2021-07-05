@@ -35,6 +35,17 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+            <div id="heart1" class="col-2">
+                <img src="../heart.jpeg" class="img-fluid" alt="">
+            </div>
+            <div id="heart2" class="col-2">
+                <img src="../heart.jpeg" class="img-fluid" alt="">
+            </div>
+            <div id="heart3" class="col-2">
+                <img src="../heart.jpeg" class="img-fluid" alt="">
+            </div>
+        </div>
         <div class="text-center" id="englishWord"></div>
         <div class="text-center" id="polishWord" style="display: none;"></div>
         <div class="text-center" id="typedPolishWord" style="height: 50px; margin-top: 3%;"></div>
@@ -51,6 +62,7 @@
         var EnglishWords = <?php echo json_encode($EnglishWords); ?>;
         var PolishWords = <?php echo json_encode($PolishWords); ?>;
         var sliceEnglishWordNumber = 0;
+        var wrongLetter = 3;
 
     // Click to the textarea input to show keyboard on mobile
     function showKeyboard()
@@ -68,12 +80,24 @@
     {
         typeingPolishTranslationID.value = "";
 
+
         if(document.getElementById("polishWord").innerHTML.slice(sliceEnglishWordNumber, (sliceEnglishWordNumber + 1)) == message)
         {
-            console.log(sliceEnglishWordNumber);
             document.getElementById("typedPolishWord").innerHTML = document.getElementById("typedPolishWord").innerHTML + message;
             sliceEnglishWordNumber ++; 
         }
+
+        else
+        {
+            document.getElementById("heart" + wrongLetter).innerHTML = "";
+            wrongLetter --;
+            if(wrongLetter < 1)
+            {
+                document.getElementById("polishWord").style.display = "block";
+                document.getElementById("polishWord").innerHTML = PolishWords[wordNumber];
+            }
+        }
+
         if(document.getElementById("polishWord").innerHTML == document.getElementById("typedPolishWord").innerHTML)
         {
             sliceEnglishWordNumber = 0;
@@ -81,7 +105,13 @@
             document.getElementById("typedPolishWord").innerHTML = "";
             document.getElementById("englishWord").innerHTML = EnglishWords[wordNumber];
             document.getElementById("polishWord").innerHTML = PolishWords[wordNumber];
-            /* Going to the first word from last  */
+            wrongLetter = 3;
+            document.getElementById("heart1").innerHTML = '<img src="../heart.jpeg" class="img-fluid" alt="">';
+            document.getElementById("heart2").innerHTML = '<img src="../heart.jpeg" class="img-fluid" alt="">';
+            document.getElementById("heart3").innerHTML = '<img src="../heart.jpeg" class="img-fluid" alt="">';
+            document.getElementById("polishWord").style.display = "none";
+        
+        /* Going to the first word from last  */
          if(wordNumber + 1 > EnglishWords.length)
             {
                 document.getElementById("polishWord").innerHTML = PolishWords[0];
