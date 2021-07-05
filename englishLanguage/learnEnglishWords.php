@@ -139,7 +139,7 @@
                 document.getElementById("polishSentenceDiv").innerHTML = "";
                 document.getElementById("englishWordDiv").innerHTML = "";
                 document.getElementById("englishSentenceDiv").innerHTML = "";
-                var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                var audio = new Audio('../sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
                 audio.play();
             }
              /* Going to the first word from last  */
