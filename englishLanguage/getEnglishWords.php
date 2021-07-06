@@ -8,11 +8,12 @@
         /* Loop for taking the data from sql and putting it into php arrays */
         while($row = mysqli_fetch_array($sql))
         {
-            $WordID[] = $row["ID"];
+            $wordID[] = $row["wordID"];
             $EnglishWords[] = $row["EnglishWords"];
             $EnglishSentence[] = $row["EnglishSentence"];
             $PolishWords[] = $row["PolishWords"];
             $PolishSentence[] = $row["PolishSentence"];
+            $isEnglishWordRemembered[] = $row["isEnglishWordRemembered"];
         }
 
         /* Connection with sql */
