@@ -54,18 +54,16 @@
         </div>
         <!-- Buttons -->
         <div class="row" style="margin-top: 3%;" >
-            <div class="col-4 text-center" >
-                <form method="post">
-                    <button onclick="yesButton()" type="button" name="yesButton"  class="mainButton btn btn-success btn-lg">Yes</button>
-                </form>
+            <div class="col-4 text-center">
+                <button class="mainButton btn btn-success btn-lg" onclick="yesButton()"> Yes</button>
             </div>
             <div class="col-4 text-center">
                 <form method="post">
-                    <button type="button" name="yesButton" class="btn btn-primary btn-lg">Middle</button>
+                    <button type="button" class="btn btn-primary btn-lg">Middle</button>
                 </form>
             </div>
             <div class="col-4 text-center">
-                <button  type="button" onclick="noButton()" class="btn btn-danger btn-lg">No</button>
+                <button type="button" onclick="noButton()" class="btn btn-danger btn-lg">No</button>
             </div>
         </div>
     </div>
@@ -82,7 +80,7 @@
         /* Variables */
         var topClick = 0;
         var bottomClick = 0;
-        var wordNumber = activeEnglishWord [0];
+        var wordNumber = activeEnglishWord[0];
         var firstWordClick = true;
 
         /** Function for displaying first polish word */
@@ -149,7 +147,6 @@
                 document.getElementById("englishSentenceDiv").innerHTML = "";
                 var audio = new Audio('../sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
                 audio.play();
-
             }
              /* Going to the first word from last  */
              if(wordNumber + 1 > PolishWords.length)
@@ -164,19 +161,26 @@
                 audio.play();
             }
 
-        /* Saving in wordCookie active word number to start from this word next time */
-        document.cookie="isEnglishWordRememberedCookie = " (isEnglishWordRemembered[wordNumber] +1) ;
-        document.cookie="englishWordRememberedID = " + wordID[wordNumber];
-        document.cookie="learnWordCookie = " + wordNumber;
-        }
+            if(wordNumber == 0)
+            {
+                isEnglishWordRemembered[EnglishWords.length -1]++;
+            }
+            isEnglishWordRemembered[wordNumber - 1]++;
+            console.log(wordNumber);
 
+        /* Saving in wordCookie active word number to start from this word next time */
+        document.cookie="isEnglishWordRememberedCookie = " + isEnglishWordRemembered;
+        document.cookie="englishWordRememberedID = " + wordID[wordNumber -1];
+        document.cookie="learnWordCookie = " + wordNumber;
+        document.cookie="columnLengthCookie = " + PolishWords.length;
+        console.log(isEnglishWordRemembered);
+        }
+        
         /* Functions for middle button displaying next word */
         function middleButton()
         {
-         
+
         }
-
-
     </script>
 
     <!-- Bootstrap script -->  
