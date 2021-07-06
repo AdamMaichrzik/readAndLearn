@@ -29,12 +29,12 @@
     $phpEnglishWordRemember = $_COOKIE['isEnglishWordRememberedCookie'];
     $phpTableLength = $_COOKIE['columnLengthCookie'];
     $i = 0;
-    $arrsingleresult = str_replace(',', '', $phpEnglishWordRemember);
+    $phpEnglishWordRememberPointsNoCommas = str_replace(',', '', $phpEnglishWordRemember);
 
-    while($i <= $phpTableLength)
+    while($i < $phpTableLength)
     {
         $sql = $connection -> 
-        query("UPDATE `englishWordsTable` SET `isEnglishWordRemembered`= ".$arrsingleresult[$i]." WHERE wordID = ".$i."");
+        query("UPDATE `englishWordsTable` SET `isEnglishWordRemembered`= ".$phpEnglishWordRememberPointsNoCommas[$i]." WHERE wordID = ".$i."");
         $i++;
     }
 ?>

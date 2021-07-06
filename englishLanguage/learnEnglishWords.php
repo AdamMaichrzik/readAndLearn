@@ -22,7 +22,6 @@
     <!-- PHP file for getting the words from SQL DB-->
     <?php include 'getEnglishWords.php';?>
     <?php include 'sendEnglishActiveWord.php';?>
-    <?php include 'sendEnglishRememberPointsToDB.php';?>
 
 </head>
 <!-- Onload function for displaying first word -->
