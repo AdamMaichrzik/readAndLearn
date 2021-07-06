@@ -35,10 +35,20 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+            <div id="heart1" class="col-2">
+                <img src="../heart.jpeg" class="img-fluid" alt="">
+            </div>
+            <div id="heart2" class="col-2">
+                <img src="../heart.jpeg" class="img-fluid" alt="">
+            </div>
+            <div id="heart3" class="col-2">
+                <img src="../heart.jpeg" class="img-fluid" alt="">
+            </div>
+        </div>
         <div class="text-center" id="germanWord"></div>
         <div class="text-center" id="polishWord" style="display: none;"></div>
         <div class="text-center" id="typedPolishWord" style="height: 50px; margin-top: 3%;"></div>
-
         <div class="row mt-5">
             <textarea style="color:transparent; background-color: #293241" class="col-12" autofocus id="typedPolishTranslationID" cols="100%" rows="1"> </textarea>
         </div>
@@ -51,7 +61,8 @@
         var germanWord = <?php echo json_encode($germanWord); ?>;
         var polishWord = <?php echo json_encode($polishWord); ?>;
         var sliceGermanWordNumber = 0;
-
+        var wrongLetter = 3;
+        
     // Click to the textarea input to show keyboard on mobile
     function showKeyboard()
     {
@@ -70,10 +81,21 @@
 
         if(document.getElementById("polishWord").innerHTML.slice(sliceGermanWordNumber, (sliceGermanWordNumber + 1)) == message)
         {
-            console.log(sliceGermanWordNumber);
             document.getElementById("typedPolishWord").innerHTML = document.getElementById("typedPolishWord").innerHTML + message;
             sliceGermanWordNumber ++; 
         }
+
+        else if(message != "Shift" && message != "Alt")
+        {
+            document.getElementById("heart" + wrongLetter).innerHTML = "";
+            wrongLetter --;
+            if(wrongLetter < 1)
+            {
+                document.getElementById("polishWord").style.display = "block";
+                document.getElementById("polishWord").innerHTML = polishWord[wordNumber];
+            }
+        }
+
         if(document.getElementById("polishWord").innerHTML == document.getElementById("typedPolishWord").innerHTML)
         {
             sliceGermanWordNumber = 0;
@@ -81,7 +103,13 @@
             document.getElementById("typedPolishWord").innerHTML = "";
             document.getElementById("germanWord").innerHTML = germanWord[wordNumber];
             document.getElementById("polishWord").innerHTML = polishWord[wordNumber];
-            /* Going to the first word from last  */
+            wrongLetter = 3;
+            document.getElementById("heart1").innerHTML = '<img src="../heart.jpeg" class="img-fluid" alt="">';
+            document.getElementById("heart2").innerHTML = '<img src="../heart.jpeg" class="img-fluid" alt="">';
+            document.getElementById("heart3").innerHTML = '<img src="../heart.jpeg" class="img-fluid" alt="">';
+            document.getElementById("polishWord").style.display = "none";
+        
+        /* Going to the first word from last  */
          if(wordNumber + 1 > germanWord.length)
             {
                 document.getElementById("polishWord").innerHTML = polishWord[0];

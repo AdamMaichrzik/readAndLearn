@@ -62,6 +62,7 @@
         var frenchWord = <?php echo json_encode($frenchWord); ?>;
         var polishWord = <?php echo json_encode($polishWord); ?>;
         var sliceFrenchWordNumber = 0;
+        var wrongLetter = 3;
 
     // Click to the textarea input to show keyboard on mobile
     function showKeyboard()
