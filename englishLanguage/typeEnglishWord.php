@@ -80,14 +80,13 @@
     {
         typeingPolishTranslationID.value = "";
 
-
         if(document.getElementById("polishWord").innerHTML.slice(sliceEnglishWordNumber, (sliceEnglishWordNumber + 1)) == message)
         {
             document.getElementById("typedPolishWord").innerHTML = document.getElementById("typedPolishWord").innerHTML + message;
             sliceEnglishWordNumber ++; 
         }
 
-        else
+        else if(message != "Shift" && message != "Alt")
         {
             document.getElementById("heart" + wrongLetter).innerHTML = "";
             wrongLetter --;
