@@ -57,7 +57,7 @@
             </div>
             <div class="col-4 text-center">
                 <form method="post">
-                    <button type="button" class="btn btn-primary btn-lg">Middle</button>
+                    <button type="button" onclick="middleButton()" class="btn btn-primary btn-lg">Middle</button>
                 </form>
             </div>
             <div class="col-4 text-center">
@@ -176,7 +176,36 @@
         /* Functions for middle button displaying next word */
         function middleButton()
         {
-
+                /* If english word is empty can't go next words */
+                if(document.getElementById("englishWordDiv").innerHTML == "")
+            {
+                return;
+            }
+            else
+            {
+                /* Clear words and display another polish word */
+                bottomClick = 0;
+                wordNumber++;
+                document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+                document.getElementById("polishSentenceDiv").innerHTML = "";
+                document.getElementById("englishWordDiv").innerHTML = "";
+                document.getElementById("englishSentenceDiv").innerHTML = "";
+                var audio = new Audio('../sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                audio.play();
+            }
+             /* Going to the first word from last  */
+             if(wordNumber + 1 > PolishWords.length)
+            {
+                document.getElementById("polishWordDiv").innerHTML = PolishWords[0];
+                document.getElementById("polishSentenceDiv").innerHTML = "";
+                document.getElementById("englishWordDiv").innerHTML = "";
+                document.getElementById("englishSentenceDiv").innerHTML = "";
+                wordNumber = 0;
+                bottomClick = 0;
+                var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                audio.play();
+            }
+            document.cookie="learnEnglishWordCookie = " + wordNumber;
         }
     </script>
 
