@@ -118,7 +118,7 @@
                 wordNumber = 0;
             }
         }
-        document.cookie="typeWordCookie = " + wordNumber;
+        document.cookie="typeEnglishWordCookie = " + wordNumber;
     }
 
         // Getting the input key
