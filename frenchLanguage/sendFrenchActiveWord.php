@@ -9,7 +9,7 @@
         $sql = mysqli_query($connection, "SELECT * FROM activeWords");
 
         $sql = $connection -> 
-        query("UPDATE `activeWords` SET `activeFrenchWord`=".$_COOKIE['learnWordCookie'].",`activeFrenchTypeWord`= ".$_COOKIE['typeFrenchWordCookie']."");
+        query("UPDATE `activeWords` SET `activeFrenchWord`=".$_COOKIE['learnFrenchWordCookie'].",`activeFrenchTypeWord`= ".$_COOKIE['typeFrenchWordCookie']."");
         echo '<script>window.location = "frenchLanguageMainPage.html";</script>';
     }               
 ?>

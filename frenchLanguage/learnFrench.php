@@ -121,7 +121,7 @@
                 bottomClick = 0;
             }
         // Cookie saving last showed word for displaying it next time 
-        document.cookie="wordCookie = " + wordNumber;
+        document.cookie="learnFrenchWordCookie = " + wordNumber;
         }
         
     </script>
