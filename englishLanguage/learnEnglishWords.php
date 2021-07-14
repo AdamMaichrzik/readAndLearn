@@ -145,7 +145,12 @@
                 document.getElementById("englishSentenceDiv").innerHTML = "";
                 var audio = new Audio('../sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
                 audio.play();
+                if( isEnglishWordRemembered[(wordNumber - 1)] > 3)
+                {
+                    console.log("More than 3")
+                }
             }
+            
              /* Going to the first word from last  */
              if(wordNumber + 1 > PolishWords.length)
             {
@@ -164,7 +169,6 @@
                 isEnglishWordRemembered[EnglishWords.length -1]++;
             }
             isEnglishWordRemembered[wordNumber - 1]++;
-            console.log(wordNumber);
 
         /* Saving cookies  */
         document.cookie="isEnglishWordRememberedCookie = " + isEnglishWordRemembered;
@@ -252,7 +256,8 @@
         document.cookie="englishWordRememberedID = " + wordID[wordNumber -1];
         document.cookie="learnEnglishWordCookie = " + wordNumber;
         document.cookie="columnLengthCookie = " + PolishWords.length;
-        }    </script>
+        }   
+        </script>
 
     <!-- Bootstrap script -->  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
