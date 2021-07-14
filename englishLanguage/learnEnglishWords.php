@@ -159,7 +159,7 @@
                 var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
                 audio.play();
             }
-
+            // This makes adding to rememberWords array on the last place 
             if(wordNumber == 0)
             {
                 isEnglishWordRemembered[EnglishWords.length -1]++;
@@ -167,12 +167,11 @@
             isEnglishWordRemembered[wordNumber - 1]++;
             console.log(wordNumber);
 
-        /* Saving in wordCookie active word number to start from this word next time */
+        /* Saving cookies  */
         document.cookie="isEnglishWordRememberedCookie = " + isEnglishWordRemembered;
         document.cookie="englishWordRememberedID = " + wordID[wordNumber -1];
         document.cookie="learnWordCookie = " + wordNumber;
         document.cookie="columnLengthCookie = " + PolishWords.length;
-        console.log(isEnglishWordRemembered);
         }
         
         /* Functions for middle button displaying next word */
