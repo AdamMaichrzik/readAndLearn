@@ -207,7 +207,52 @@
             }
             document.cookie="learnEnglishWordCookie = " + wordNumber;
         }
-    </script>
+        /* Functions for no button displaying next word */
+        function noButton()
+        {
+            /* If english word is empty can't go next words */
+            if(document.getElementById("englishWordDiv").innerHTML == "")
+            {
+                return;
+            }
+            else
+            {
+                /* Clear words and display another polish word */
+                bottomClick = 0;
+                wordNumber++;
+                document.getElementById("polishWordDiv").innerHTML = PolishWords[wordNumber];
+                document.getElementById("polishSentenceDiv").innerHTML = "";
+                document.getElementById("englishWordDiv").innerHTML = "";
+                document.getElementById("englishSentenceDiv").innerHTML = "";
+                var audio = new Audio('../sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                audio.play();
+            }
+             /* Going to the first word from last  */
+             if(wordNumber + 1 > PolishWords.length)
+            {
+                document.getElementById("polishWordDiv").innerHTML = PolishWords[0];
+                document.getElementById("polishSentenceDiv").innerHTML = "";
+                document.getElementById("englishWordDiv").innerHTML = "";
+                document.getElementById("englishSentenceDiv").innerHTML = "";
+                wordNumber = 0;
+                bottomClick = 0;
+                var audio = new Audio('sounds/Words/Polish/Word' + [wordNumber] + '.mp3');
+                audio.play();
+            }
+            // This makes adding to rememberWords array on the last place 
+            if(wordNumber == 0)
+            {
+                isEnglishWordRemembered[EnglishWords.length -1]--;
+            }
+            isEnglishWordRemembered[wordNumber - 1]--;
+            console.log(wordNumber);
+
+        /* Saving cookies  */
+        document.cookie="isEnglishWordRememberedCookie = " + isEnglishWordRemembered;
+        document.cookie="englishWordRememberedID = " + wordID[wordNumber -1];
+        document.cookie="learnEnglishWordCookie = " + wordNumber;
+        document.cookie="columnLengthCookie = " + PolishWords.length;
+        }    </script>
 
     <!-- Bootstrap script -->  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
